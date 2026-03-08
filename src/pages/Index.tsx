@@ -39,7 +39,7 @@ const Index = () => {
           </p>
           <div className="flex items-center gap-2 mt-4 text-primary-foreground/60 text-xs">
             <Activity className="h-3.5 w-3.5" />
-            <span>41 diseases • 132 symptoms • Pattern matching engine</span>
+            <span>6 diseases • Symptom-based pattern matching engine</span>
           </div>
         </div>
       </header>
