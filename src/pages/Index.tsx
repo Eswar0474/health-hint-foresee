@@ -63,7 +63,7 @@ const Index = () => {
 
           {/* Results */}
           <div className="lg:col-span-3">
-            <h2 className="font-display text-lg font-semibold text-foreground mb-4">
+          <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
               Predictions
               {results.length > 0 && (
                 <span className="ml-2 text-sm font-normal text-muted-foreground">

@@ -132,7 +132,7 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
 
             {/* Expanded details */}
             {isExpanded && details && (
-              <div className="border-t border-border bg-secondary/30 p-5 space-y-5 animate-in slide-in-from-top-2 duration-200">
+              <div className="border-t border-border bg-secondary/30 p-3 sm:p-5 space-y-4 sm:space-y-5 animate-in slide-in-from-top-2 duration-200">
                 {/* Precautions */}
                 <div>
                   <div className="flex items-center gap-2 mb-2.5">
