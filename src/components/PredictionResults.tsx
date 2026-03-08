@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DiseaseProfile, SYMPTOM_LABELS } from "@/data/diseaseData";
+import { DiseaseProfile } from "@/data/diseaseData";
 import { DISEASE_DETAILS } from "@/data/diseaseDetails";
 import {
   AlertTriangle, Shield, Info, ChevronDown, ChevronUp,
