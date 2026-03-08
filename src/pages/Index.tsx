@@ -68,7 +68,18 @@ const Index = () => {
                 MediPredict
               </h1>
             </div>
-            <ThemeToggle />
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={signOut}
+                className="rounded-xl bg-primary-foreground/15 hover:bg-primary-foreground/25 text-primary-foreground h-8 w-8 sm:h-10 sm:w-10"
+                title={user?.email ?? "Sign out"}
+              >
+                <LogOut className="h-4 w-4 sm:h-5 sm:w-5" />
+              </Button>
+            </div>
           </div>
           <p className="text-primary-foreground/80 max-w-lg text-xs sm:text-sm md:text-base">
             Symptom-based multi-disease prediction system. Select your symptoms to
