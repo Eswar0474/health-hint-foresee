@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DiseaseProfile, SYMPTOM_LABELS } from "@/data/diseaseData";
+import { DiseaseProfile } from "@/data/diseaseData";
 import { DISEASE_DETAILS } from "@/data/diseaseDetails";
 import {
   AlertTriangle, Shield, Info, ChevronDown, ChevronUp,
@@ -44,9 +44,6 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
       {results.map(({ disease, score }, index) => {
         const severity = severityConfig[disease.severity];
         const SeverityIcon = severity.icon;
-        const matchedSymptoms = disease.symptoms.filter((s) =>
-          selectedSymptoms.includes(s)
-        );
         const percentage = Math.round(score * 100);
         const isExpanded = expandedCard === disease.name;
         const details = DISEASE_DETAILS[disease.name];
