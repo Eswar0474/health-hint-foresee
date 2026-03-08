@@ -1,0 +1,266 @@
+// Symptom names extracted from the dataset
+export const ALL_SYMPTOMS = [
+  "itching", "skin_rash", "nodal_skin_eruptions", "continuous_sneezing", "shivering",
+  "chills", "joint_pain", "stomach_pain", "acidity", "ulcers_on_tongue",
+  "muscle_wasting", "vomiting", "burning_micturition", "spotting_urination", "fatigue",
+  "weight_gain", "anxiety", "cold_hands_and_feets", "mood_swings", "weight_loss",
+  "restlessness", "lethargy", "patches_in_throat", "irregular_sugar_level", "cough",
+  "high_fever", "sunken_eyes", "breathlessness", "sweating", "dehydration",
+  "indigestion", "headache", "yellowish_skin", "dark_urine", "nausea",
+  "loss_of_appetite", "pain_behind_the_eyes", "back_pain", "constipation", "abdominal_pain",
+  "diarrhoea", "mild_fever", "yellow_urine", "yellowing_of_eyes", "acute_liver_failure",
+  "fluid_overload", "swelling_of_stomach", "swelled_lymph_nodes", "malaise", "blurred_and_distorted_vision",
+  "phlegm", "throat_irritation", "redness_of_eyes", "sinus_pressure", "runny_nose",
+  "congestion", "chest_pain", "weakness_in_limbs", "fast_heart_rate", "pain_during_bowel_movements",
+  "pain_in_anal_region", "bloody_stool", "irritation_in_anus", "neck_pain", "dizziness",
+  "cramps", "bruising", "obesity", "swollen_legs", "swollen_blood_vessels",
+  "puffy_face_and_eyes", "enlarged_thyroid", "brittle_nails", "swollen_extremeties", "excessive_hunger",
+  "extra_marital_contacts", "drying_and_tingling_lips", "slurred_speech", "knee_pain", "hip_joint_pain",
+  "muscle_weakness", "stiff_neck", "swelling_joints", "movement_stiffness", "spinning_movements",
+  "loss_of_balance", "unsteadiness", "weakness_of_one_body_side", "loss_of_smell", "bladder_discomfort",
+  "foul_smell_of_urine", "continuous_feel_of_urine", "passage_of_gases", "internal_itching",
+  "toxic_look_typhos", "depression", "irritability", "muscle_pain", "altered_sensorium",
+  "red_spots_over_body", "belly_pain", "abnormal_menstruation", "dischromic_patches",
+  "watering_from_eyes", "increased_appetite", "polyuria", "family_history", "mucoid_sputum",
+  "rusty_sputum", "lack_of_concentration", "visual_disturbances", "receiving_blood_transfusion",
+  "receiving_unsterile_injections", "coma", "stomach_bleeding", "distention_of_abdomen",
+  "history_of_alcohol_consumption", "fluid_overload_2", "blood_in_sputum", "prominent_veins_on_calf",
+  "palpitations", "painful_walking", "pus_filled_pimples", "blackheads", "scurring",
+  "skin_peeling", "silver_like_dusting", "small_dents_in_nails", "inflammatory_nails",
+  "blister", "red_sore_around_nose", "yellow_crust_ooze"
+] as const;
+
+// Symptom display names (human-readable)
+export const SYMPTOM_LABELS: Record<string, string> = {
+  itching: "Itching",
+  skin_rash: "Skin Rash",
+  nodal_skin_eruptions: "Nodal Skin Eruptions",
+  continuous_sneezing: "Continuous Sneezing",
+  shivering: "Shivering",
+  chills: "Chills",
+  joint_pain: "Joint Pain",
+  stomach_pain: "Stomach Pain",
+  acidity: "Acidity",
+  ulcers_on_tongue: "Ulcers on Tongue",
+  muscle_wasting: "Muscle Wasting",
+  vomiting: "Vomiting",
+  burning_micturition: "Burning Micturition",
+  spotting_urination: "Spotting Urination",
+  fatigue: "Fatigue",
+  weight_gain: "Weight Gain",
+  anxiety: "Anxiety",
+  cold_hands_and_feets: "Cold Hands & Feet",
+  mood_swings: "Mood Swings",
+  weight_loss: "Weight Loss",
+  restlessness: "Restlessness",
+  lethargy: "Lethargy",
+  patches_in_throat: "Patches in Throat",
+  irregular_sugar_level: "Irregular Sugar Level",
+  cough: "Cough",
+  high_fever: "High Fever",
+  sunken_eyes: "Sunken Eyes",
+  breathlessness: "Breathlessness",
+  sweating: "Sweating",
+  dehydration: "Dehydration",
+  indigestion: "Indigestion",
+  headache: "Headache",
+  yellowish_skin: "Yellowish Skin",
+  dark_urine: "Dark Urine",
+  nausea: "Nausea",
+  loss_of_appetite: "Loss of Appetite",
+  pain_behind_the_eyes: "Pain Behind the Eyes",
+  back_pain: "Back Pain",
+  constipation: "Constipation",
+  abdominal_pain: "Abdominal Pain",
+  diarrhoea: "Diarrhoea",
+  mild_fever: "Mild Fever",
+  yellow_urine: "Yellow Urine",
+  yellowing_of_eyes: "Yellowing of Eyes",
+  acute_liver_failure: "Acute Liver Failure",
+  fluid_overload: "Fluid Overload",
+  swelling_of_stomach: "Swelling of Stomach",
+  swelled_lymph_nodes: "Swelled Lymph Nodes",
+  malaise: "Malaise",
+  blurred_and_distorted_vision: "Blurred & Distorted Vision",
+  phlegm: "Phlegm",
+  throat_irritation: "Throat Irritation",
+  redness_of_eyes: "Redness of Eyes",
+  sinus_pressure: "Sinus Pressure",
+  runny_nose: "Runny Nose",
+  congestion: "Congestion",
+  chest_pain: "Chest Pain",
+  weakness_in_limbs: "Weakness in Limbs",
+  fast_heart_rate: "Fast Heart Rate",
+  pain_during_bowel_movements: "Pain During Bowel Movements",
+  pain_in_anal_region: "Pain in Anal Region",
+  bloody_stool: "Bloody Stool",
+  irritation_in_anus: "Irritation in Anus",
+  neck_pain: "Neck Pain",
+  dizziness: "Dizziness",
+  cramps: "Cramps",
+  bruising: "Bruising",
+  obesity: "Obesity",
+  swollen_legs: "Swollen Legs",
+  swollen_blood_vessels: "Swollen Blood Vessels",
+  puffy_face_and_eyes: "Puffy Face & Eyes",
+  enlarged_thyroid: "Enlarged Thyroid",
+  brittle_nails: "Brittle Nails",
+  swollen_extremeties: "Swollen Extremities",
+  excessive_hunger: "Excessive Hunger",
+  extra_marital_contacts: "Extra Marital Contacts",
+  drying_and_tingling_lips: "Drying & Tingling Lips",
+  slurred_speech: "Slurred Speech",
+  knee_pain: "Knee Pain",
+  hip_joint_pain: "Hip Joint Pain",
+  muscle_weakness: "Muscle Weakness",
+  stiff_neck: "Stiff Neck",
+  swelling_joints: "Swelling Joints",
+  movement_stiffness: "Movement Stiffness",
+  spinning_movements: "Spinning Movements",
+  loss_of_balance: "Loss of Balance",
+  unsteadiness: "Unsteadiness",
+  weakness_of_one_body_side: "Weakness of One Body Side",
+  loss_of_smell: "Loss of Smell",
+  bladder_discomfort: "Bladder Discomfort",
+  foul_smell_of_urine: "Foul Smell of Urine",
+  continuous_feel_of_urine: "Continuous Feel of Urine",
+  passage_of_gases: "Passage of Gases",
+  internal_itching: "Internal Itching",
+  toxic_look_typhos: "Toxic Look (Typhos)",
+  depression: "Depression",
+  irritability: "Irritability",
+  muscle_pain: "Muscle Pain",
+  altered_sensorium: "Altered Sensorium",
+  red_spots_over_body: "Red Spots Over Body",
+  belly_pain: "Belly Pain",
+  abnormal_menstruation: "Abnormal Menstruation",
+  dischromic_patches: "Dischromic Patches",
+  watering_from_eyes: "Watering from Eyes",
+  increased_appetite: "Increased Appetite",
+  polyuria: "Polyuria",
+  family_history: "Family History",
+  mucoid_sputum: "Mucoid Sputum",
+  rusty_sputum: "Rusty Sputum",
+  lack_of_concentration: "Lack of Concentration",
+  visual_disturbances: "Visual Disturbances",
+  receiving_blood_transfusion: "Receiving Blood Transfusion",
+  receiving_unsterile_injections: "Receiving Unsterile Injections",
+  coma: "Coma",
+  stomach_bleeding: "Stomach Bleeding",
+  distention_of_abdomen: "Distention of Abdomen",
+  history_of_alcohol_consumption: "History of Alcohol Consumption",
+  fluid_overload_2: "Fluid Overload",
+  blood_in_sputum: "Blood in Sputum",
+  prominent_veins_on_calf: "Prominent Veins on Calf",
+  palpitations: "Palpitations",
+  painful_walking: "Painful Walking",
+  pus_filled_pimples: "Pus Filled Pimples",
+  blackheads: "Blackheads",
+  scurring: "Scurring",
+  skin_peeling: "Skin Peeling",
+  silver_like_dusting: "Silver Like Dusting",
+  small_dents_in_nails: "Small Dents in Nails",
+  inflammatory_nails: "Inflammatory Nails",
+  blister: "Blister",
+  red_sore_around_nose: "Red Sore Around Nose",
+  yellow_crust_ooze: "Yellow Crust Ooze",
+};
+
+// Symptom categories for better UX
+export const SYMPTOM_CATEGORIES: Record<string, string[]> = {
+  "General": ["fatigue", "weight_gain", "weight_loss", "restlessness", "lethargy", "malaise", "dehydration", "obesity", "anxiety", "depression", "irritability", "mood_swings"],
+  "Skin": ["itching", "skin_rash", "nodal_skin_eruptions", "yellowish_skin", "dischromic_patches", "pus_filled_pimples", "blackheads", "scurring", "skin_peeling", "silver_like_dusting", "blister", "red_sore_around_nose", "yellow_crust_ooze", "red_spots_over_body", "bruising"],
+  "Head & Neck": ["headache", "neck_pain", "dizziness", "spinning_movements", "loss_of_balance", "unsteadiness", "loss_of_smell", "blurred_and_distorted_vision", "visual_disturbances", "lack_of_concentration", "slurred_speech", "altered_sensorium", "stiff_neck", "weakness_of_one_body_side", "puffy_face_and_eyes", "enlarged_thyroid"],
+  "Respiratory": ["continuous_sneezing", "cough", "breathlessness", "phlegm", "throat_irritation", "sinus_pressure", "runny_nose", "congestion", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum"],
+  "Digestive": ["stomach_pain", "acidity", "ulcers_on_tongue", "vomiting", "nausea", "indigestion", "constipation", "abdominal_pain", "diarrhoea", "loss_of_appetite", "passage_of_gases", "internal_itching", "belly_pain", "swelling_of_stomach", "distention_of_abdomen", "stomach_bleeding", "acute_liver_failure"],
+  "Fever & Infection": ["shivering", "chills", "high_fever", "mild_fever", "sweating", "toxic_look_typhos", "patches_in_throat", "swelled_lymph_nodes"],
+  "Urinary": ["burning_micturition", "spotting_urination", "dark_urine", "yellow_urine", "bladder_discomfort", "foul_smell_of_urine", "continuous_feel_of_urine", "polyuria"],
+  "Musculoskeletal": ["joint_pain", "muscle_wasting", "muscle_weakness", "muscle_pain", "back_pain", "knee_pain", "hip_joint_pain", "swelling_joints", "movement_stiffness", "weakness_in_limbs", "cramps"],
+  "Eyes": ["sunken_eyes", "redness_of_eyes", "watering_from_eyes", "pain_behind_the_eyes", "yellowing_of_eyes"],
+  "Circulatory": ["fast_heart_rate", "swollen_legs", "swollen_blood_vessels", "cold_hands_and_feets", "palpitations", "prominent_veins_on_calf", "fluid_overload", "fluid_overload_2"],
+  "Other": ["extra_marital_contacts", "drying_and_tingling_lips", "swollen_extremeties", "excessive_hunger", "brittle_nails", "small_dents_in_nails", "inflammatory_nails", "increased_appetite", "irregular_sugar_level", "family_history", "receiving_blood_transfusion", "receiving_unsterile_injections", "coma", "history_of_alcohol_consumption", "painful_walking", "abnormal_menstruation", "pain_during_bowel_movements", "pain_in_anal_region", "bloody_stool", "irritation_in_anus"],
+};
+
+// Disease profiles: disease name -> array of symptom keys that are typically present
+// Derived from the testing dataset (representative symptom patterns per disease)
+export interface DiseaseProfile {
+  name: string;
+  symptoms: string[];
+  description: string;
+  severity: "low" | "medium" | "high";
+}
+
+export const DISEASE_PROFILES: DiseaseProfile[] = [
+  { name: "Fungal Infection", symptoms: ["itching", "skin_rash", "nodal_skin_eruptions", "dischromic_patches"], description: "A skin infection caused by fungi. Common in warm, moist areas.", severity: "low" },
+  { name: "Allergy", symptoms: ["continuous_sneezing", "shivering", "chills", "watering_from_eyes"], description: "An immune system reaction to a foreign substance.", severity: "low" },
+  { name: "GERD", symptoms: ["stomach_pain", "acidity", "ulcers_on_tongue", "vomiting", "cough", "chest_pain"], description: "Gastroesophageal reflux disease. Chronic acid reflux.", severity: "medium" },
+  { name: "Chronic Cholestasis", symptoms: ["itching", "vomiting", "yellowish_skin", "nausea", "loss_of_appetite", "abdominal_pain", "yellowing_of_eyes"], description: "A condition where bile flow from the liver is reduced or blocked.", severity: "high" },
+  { name: "Drug Reaction", symptoms: ["itching", "skin_rash", "stomach_pain", "burning_micturition", "spotting_urination"], description: "Adverse reaction to medication.", severity: "medium" },
+  { name: "Peptic Ulcer Disease", symptoms: ["vomiting", "indigestion", "loss_of_appetite", "abdominal_pain", "passage_of_gases", "internal_itching"], description: "Sores that develop on the lining of the stomach or small intestine.", severity: "medium" },
+  { name: "AIDS", symptoms: ["muscle_wasting", "patches_in_throat", "high_fever", "extra_marital_contacts"], description: "Acquired immunodeficiency syndrome caused by HIV.", severity: "high" },
+  { name: "Diabetes", symptoms: ["fatigue", "weight_loss", "restlessness", "lethargy", "irregular_sugar_level", "blurred_and_distorted_vision", "obesity", "excessive_hunger", "increased_appetite", "polyuria"], description: "A metabolic disease causing high blood sugar.", severity: "high" },
+  { name: "Gastroenteritis", symptoms: ["vomiting", "sunken_eyes", "dehydration", "diarrhoea"], description: "Inflammation of the stomach and intestines, typically from infection.", severity: "medium" },
+  { name: "Bronchial Asthma", symptoms: ["fatigue", "cough", "high_fever", "breathlessness", "family_history", "mucoid_sputum"], description: "A condition in which airways narrow, swell, and produce extra mucus.", severity: "medium" },
+  { name: "Hypertension", symptoms: ["headache", "chest_pain", "dizziness", "loss_of_balance", "lack_of_concentration"], description: "Persistently elevated blood pressure in the arteries.", severity: "high" },
+  { name: "Migraine", symptoms: ["acidity", "indigestion", "headache", "blurred_and_distorted_vision", "excessive_hunger", "stiff_neck", "depression", "irritability", "visual_disturbances"], description: "A type of headache with severe throbbing pain, often on one side.", severity: "medium" },
+  { name: "Cervical Spondylosis", symptoms: ["back_pain", "weakness_in_limbs", "neck_pain", "dizziness", "loss_of_balance"], description: "Age-related wear and tear affecting the spinal disks in your neck.", severity: "medium" },
+  { name: "Paralysis (Brain Hemorrhage)", symptoms: ["vomiting", "headache", "weakness_of_one_body_side", "altered_sensorium"], description: "Loss of muscle function due to bleeding in the brain.", severity: "high" },
+  { name: "Jaundice", symptoms: ["itching", "vomiting", "fatigue", "weight_loss", "high_fever", "yellowish_skin", "dark_urine", "abdominal_pain"], description: "Yellowing of the skin and eyes due to high bilirubin levels.", severity: "high" },
+  { name: "Malaria", symptoms: ["chills", "vomiting", "high_fever", "sweating", "headache", "nausea", "diarrhoea", "muscle_pain"], description: "A mosquito-borne infectious disease.", severity: "high" },
+  { name: "Chicken Pox", symptoms: ["itching", "skin_rash", "fatigue", "lethargy", "high_fever", "headache", "loss_of_appetite", "mild_fever", "swelled_lymph_nodes", "malaise", "red_spots_over_body"], description: "A highly contagious viral infection causing an itchy rash.", severity: "medium" },
+  { name: "Dengue", symptoms: ["skin_rash", "chills", "joint_pain", "vomiting", "fatigue", "high_fever", "headache", "nausea", "loss_of_appetite", "pain_behind_the_eyes", "back_pain", "malaise", "muscle_pain", "red_spots_over_body"], description: "A mosquito-borne tropical disease.", severity: "high" },
+  { name: "Typhoid", symptoms: ["chills", "vomiting", "fatigue", "high_fever", "headache", "nausea", "constipation", "abdominal_pain", "diarrhoea", "toxic_look_typhos", "belly_pain"], description: "A bacterial infection caused by Salmonella typhi.", severity: "high" },
+  { name: "Hepatitis A", symptoms: ["joint_pain", "vomiting", "yellowish_skin", "dark_urine", "nausea", "loss_of_appetite", "abdominal_pain", "diarrhoea", "mild_fever", "yellowing_of_eyes", "muscle_pain"], description: "A highly contagious liver infection caused by hepatitis A virus.", severity: "medium" },
+  { name: "Hepatitis B", symptoms: ["itching", "fatigue", "lethargy", "yellowish_skin", "dark_urine", "loss_of_appetite", "abdominal_pain", "yellow_urine", "yellowing_of_eyes", "malaise", "receiving_blood_transfusion", "receiving_unsterile_injections"], description: "A serious liver infection caused by the hepatitis B virus.", severity: "high" },
+  { name: "Hepatitis C", symptoms: ["fatigue", "yellowish_skin", "nausea", "loss_of_appetite", "yellowing_of_eyes", "family_history"], description: "An infection caused by a virus that attacks the liver.", severity: "high" },
+  { name: "Hepatitis D", symptoms: ["joint_pain", "vomiting", "fatigue", "yellowish_skin", "dark_urine", "nausea", "loss_of_appetite", "abdominal_pain", "yellowing_of_eyes"], description: "A serious liver disease caused by hepatitis D virus.", severity: "high" },
+  { name: "Hepatitis E", symptoms: ["joint_pain", "vomiting", "fatigue", "high_fever", "yellowish_skin", "dark_urine", "nausea", "loss_of_appetite", "abdominal_pain", "yellowing_of_eyes", "acute_liver_failure", "coma", "stomach_bleeding"], description: "A liver disease caused by the hepatitis E virus.", severity: "high" },
+  { name: "Alcoholic Hepatitis", symptoms: ["vomiting", "yellowish_skin", "abdominal_pain", "swelling_of_stomach", "distention_of_abdomen", "history_of_alcohol_consumption", "fluid_overload_2"], description: "Liver inflammation caused by drinking too much alcohol.", severity: "high" },
+  { name: "Tuberculosis", symptoms: ["chills", "vomiting", "fatigue", "weight_loss", "cough", "high_fever", "breathlessness", "sweating", "loss_of_appetite", "mild_fever", "yellowing_of_eyes", "swelled_lymph_nodes", "malaise", "phlegm", "chest_pain", "blood_in_sputum"], description: "A potentially serious infectious bacterial disease.", severity: "high" },
+  { name: "Common Cold", symptoms: ["continuous_sneezing", "chills", "fatigue", "cough", "high_fever", "headache", "swelled_lymph_nodes", "malaise", "phlegm", "throat_irritation", "redness_of_eyes", "sinus_pressure", "runny_nose", "congestion", "chest_pain", "loss_of_smell", "muscle_pain"], description: "A viral infection of your nose and throat.", severity: "low" },
+  { name: "Pneumonia", symptoms: ["chills", "fatigue", "cough", "high_fever", "breathlessness", "sweating", "malaise", "phlegm", "fast_heart_rate", "chest_pain", "rusty_sputum"], description: "Infection that inflames air sacs in one or both lungs.", severity: "high" },
+  { name: "Dimorphic Hemorrhoids (Piles)", symptoms: ["constipation", "pain_during_bowel_movements", "pain_in_anal_region", "bloody_stool", "irritation_in_anus"], description: "Swollen veins in the lower rectum.", severity: "low" },
+  { name: "Heart Attack", symptoms: ["vomiting", "breathlessness", "sweating", "chest_pain"], description: "Occurs when blood flow to the heart is blocked.", severity: "high" },
+  { name: "Varicose Veins", symptoms: ["fatigue", "cramps", "bruising", "obesity", "swollen_legs", "swollen_blood_vessels", "prominent_veins_on_calf"], description: "Enlarged, twisted veins usually in the legs.", severity: "low" },
+  { name: "Hypothyroidism", symptoms: ["fatigue", "weight_gain", "cold_hands_and_feets", "mood_swings", "lethargy", "dizziness", "puffy_face_and_eyes", "enlarged_thyroid", "brittle_nails", "swollen_extremeties", "depression", "irritability", "abnormal_menstruation"], description: "Condition where the thyroid gland doesn't produce enough hormones.", severity: "medium" },
+  { name: "Hyperthyroidism", symptoms: ["fatigue", "mood_swings", "weight_loss", "restlessness", "sweating", "diarrhoea", "fast_heart_rate", "excessive_hunger", "muscle_weakness", "irritability", "abnormal_menstruation"], description: "Overproduction of thyroid hormones.", severity: "medium" },
+  { name: "Hypoglycemia", symptoms: ["vomiting", "fatigue", "anxiety", "sweating", "headache", "nausea", "blurred_and_distorted_vision", "excessive_hunger", "drying_and_tingling_lips", "slurred_speech", "irritability", "palpitations"], description: "A condition where blood sugar levels are lower than normal.", severity: "medium" },
+  { name: "Osteoarthritis", symptoms: ["joint_pain", "neck_pain", "knee_pain", "hip_joint_pain", "swelling_joints", "painful_walking"], description: "The most common form of arthritis, affecting joints.", severity: "medium" },
+  { name: "Arthritis", symptoms: ["muscle_weakness", "stiff_neck", "swelling_joints", "movement_stiffness", "painful_walking"], description: "Inflammation of one or more joints.", severity: "medium" },
+  { name: "(Vertigo) Paroxysmal Positional Vertigo", symptoms: ["vomiting", "headache", "nausea", "spinning_movements", "loss_of_balance", "unsteadiness"], description: "Brief episodes of dizziness related to head position changes.", severity: "low" },
+  { name: "Acne", symptoms: ["skin_rash", "pus_filled_pimples", "blackheads", "scurring"], description: "A skin condition with pimples, mostly on the face.", severity: "low" },
+  { name: "Urinary Tract Infection", symptoms: ["burning_micturition", "bladder_discomfort", "foul_smell_of_urine", "continuous_feel_of_urine"], description: "An infection in any part of the urinary system.", severity: "low" },
+  { name: "Psoriasis", symptoms: ["skin_rash", "joint_pain", "skin_peeling", "silver_like_dusting", "small_dents_in_nails", "inflammatory_nails"], description: "A condition that causes skin cells to multiply rapidly.", severity: "medium" },
+  { name: "Impetigo", symptoms: ["skin_rash", "high_fever", "blister", "red_sore_around_nose", "yellow_crust_ooze"], description: "A highly contagious skin infection causing sores and blisters.", severity: "low" },
+];
+
+// Prediction function using Jaccard similarity
+export function predictDiseases(selectedSymptoms: string[]): { disease: DiseaseProfile; score: number }[] {
+  if (selectedSymptoms.length === 0) return [];
+
+  const results = DISEASE_PROFILES.map((disease) => {
+    const diseaseSymptomSet = new Set(disease.symptoms);
+    const selectedSet = new Set(selectedSymptoms);
+
+    // Intersection
+    const intersection = selectedSymptoms.filter((s) => diseaseSymptomSet.has(s)).length;
+    // Union
+    const union = new Set([...diseaseSymptomSet, ...selectedSet]).size;
+    
+    // Jaccard similarity
+    const jaccard = union > 0 ? intersection / union : 0;
+    
+    // Also weight by how many of the disease's symptoms are matched
+    const coverageOfDisease = disease.symptoms.length > 0 ? intersection / disease.symptoms.length : 0;
+    
+    // Combined score: weighted average
+    const score = jaccard * 0.4 + coverageOfDisease * 0.6;
+
+    return { disease, score };
+  });
+
+  return results
+    .filter((r) => r.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+}
