@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { SYMPTOM_CATEGORIES, SYMPTOM_LABELS } from "@/data/diseaseData";
+import { SYMPTOM_CATEGORIES } from "@/data/diseaseData";
 import { Search, X, ChevronDown, ChevronUp } from "lucide-react";
 
 interface SymptomSelectorProps {
@@ -11,8 +12,12 @@ interface SymptomSelectorProps {
 }
 
 export default function SymptomSelector({ selected, onToggle, onClear }: SymptomSelectorProps) {
+  const { t } = useTranslation();
   const [search, setSearch] = useState("");
   const [expandedCategory, setExpandedCategory] = useState<string | null>("General");
+
+  const getSymptomLabel = (s: string) => t(`symptoms.labels.${s}`, s);
+  const getCategoryLabel = (c: string) => t(`symptoms.categories.${c}`, c);
 
   const filteredCategories = useMemo(() => {
     if (!search.trim()) return SYMPTOM_CATEGORIES;
@@ -20,38 +25,33 @@ export default function SymptomSelector({ selected, onToggle, onClear }: Symptom
     const result: Record<string, string[]> = {};
     for (const [cat, symptoms] of Object.entries(SYMPTOM_CATEGORIES)) {
       const filtered = symptoms.filter(
-        (s) => (SYMPTOM_LABELS[s] || s).toLowerCase().includes(q)
+        (s) => getSymptomLabel(s).toLowerCase().includes(q) || s.toLowerCase().includes(q)
       );
       if (filtered.length > 0) result[cat] = filtered;
     }
     return result;
-  }, [search]);
+  }, [search, t]);
 
   return (
     <div className="space-y-4">
-      {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder="Search symptoms..."
+          placeholder={t("symptoms.search")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="pl-10 bg-card border-border"
         />
       </div>
 
-      {/* Selected symptoms */}
       {selected.length > 0 && (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-muted-foreground">
-              Selected ({selected.length})
+              {t("symptoms.selected")} ({selected.length})
             </span>
-            <button
-              onClick={onClear}
-              className="text-xs text-destructive hover:underline"
-            >
-              Clear all
+            <button onClick={onClear} className="text-xs text-destructive hover:underline">
+              {t("symptoms.clearAll")}
             </button>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -62,7 +62,7 @@ export default function SymptomSelector({ selected, onToggle, onClear }: Symptom
                 className="cursor-pointer gap-1 bg-primary text-primary-foreground hover:bg-primary/90"
                 onClick={() => onToggle(s)}
               >
-                {SYMPTOM_LABELS[s] || s}
+                {getSymptomLabel(s)}
                 <X className="h-3 w-3" />
               </Badge>
             ))}
@@ -70,7 +70,6 @@ export default function SymptomSelector({ selected, onToggle, onClear }: Symptom
         </div>
       )}
 
-      {/* Categories */}
       <div className="space-y-1 max-h-[50vh] lg:max-h-[400px] overflow-y-auto pr-1">
         {Object.entries(filteredCategories).map(([category, symptoms]) => (
           <div key={category} className="rounded-lg border border-border overflow-hidden">
@@ -80,7 +79,7 @@ export default function SymptomSelector({ selected, onToggle, onClear }: Symptom
               }
               className="w-full flex items-center justify-between px-4 py-2.5 bg-secondary/50 hover:bg-secondary transition-colors text-sm font-medium text-secondary-foreground"
             >
-              <span>{category}</span>
+              <span>{getCategoryLabel(category)}</span>
               <span className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground">
                   {symptoms.filter((s) => selected.includes(s)).length}/{symptoms.length}
@@ -106,7 +105,7 @@ export default function SymptomSelector({ selected, onToggle, onClear }: Symptom
                           : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                       }`}
                     >
-                      {SYMPTOM_LABELS[symptom] || symptom}
+                      {getSymptomLabel(symptom)}
                     </button>
                   );
                 })}

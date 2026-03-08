@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { DiseaseProfile } from "@/data/diseaseData";
 import { DISEASE_DETAILS } from "@/data/diseaseDetails";
 import {
@@ -11,14 +12,15 @@ interface PredictionResultsProps {
   selectedSymptoms: string[];
 }
 
-const severityConfig = {
-  low: { icon: Shield, label: "Low", className: "text-success bg-success/10" },
-  medium: { icon: Info, label: "Medium", className: "text-warning bg-warning/10" },
-  high: { icon: AlertTriangle, label: "High", className: "text-destructive bg-destructive/10" },
-};
-
 export default function PredictionResults({ results, selectedSymptoms }: PredictionResultsProps) {
+  const { t } = useTranslation();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+
+  const severityConfig = {
+    low: { icon: Shield, label: t("predictions.severity.low"), className: "text-success bg-success/10" },
+    medium: { icon: Info, label: t("predictions.severity.medium"), className: "text-warning bg-warning/10" },
+    high: { icon: AlertTriangle, label: t("predictions.severity.high"), className: "text-destructive bg-destructive/10" },
+  };
 
   if (results.length === 0) {
     return (
@@ -27,10 +29,10 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
           <Shield className="h-8 w-8 text-muted-foreground" />
         </div>
         <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-          Select Your Symptoms
+          {t("predictions.selectSymptoms")}
         </h3>
         <p className="text-sm text-muted-foreground max-w-xs">
-          Choose symptoms from the panel to get disease predictions based on pattern matching.
+          {t("predictions.selectSymptomsDesc")}
         </p>
       </div>
     );
@@ -39,7 +41,7 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
   return (
     <div className="space-y-4">
       <p className="text-xs text-muted-foreground">
-        Top {results.length} possible conditions based on your symptoms
+        {t("predictions.topConditions", { count: results.length })}
       </p>
       {results.map(({ disease, score }, index) => {
         const severity = severityConfig[disease.severity];
@@ -67,7 +69,7 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                       className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium mt-1 ${severity.className}`}
                     >
                       <SeverityIcon className="h-3 w-3" />
-                      {severity.label} Severity
+                      {severity.label} {t("predictions.severityLabel")}
                     </span>
                   </div>
                 </div>
@@ -75,11 +77,10 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                   <span className="font-display text-xl sm:text-2xl font-bold text-primary">
                     {percentage}%
                   </span>
-                  <p className="text-xs text-muted-foreground">match</p>
+                  <p className="text-xs text-muted-foreground">{t("predictions.match")}</p>
                 </div>
               </div>
 
-              {/* Progress bar */}
               <div className="w-full h-2 bg-muted rounded-full mb-3 overflow-hidden">
                 <div
                   className="h-full rounded-full gradient-medical transition-all duration-500"
@@ -91,27 +92,23 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                 {disease.description}
               </p>
 
-
-              {/* Expand button */}
               {details && (
                 <button
                   onClick={() => setExpandedCard(isExpanded ? null : disease.name)}
                   className="w-full flex items-center justify-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors pt-2 border-t border-border"
                 >
-                  {isExpanded ? "Hide" : "View"} Precautions, Tests & Diet
+                  {isExpanded ? t("predictions.hideDetails") : t("predictions.viewDetails")}
                   {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                 </button>
               )}
             </div>
 
-            {/* Expanded details */}
             {isExpanded && details && (
               <div className="border-t border-border bg-secondary/30 p-3 sm:p-5 space-y-4 sm:space-y-5 animate-in slide-in-from-top-2 duration-200">
-                {/* Precautions */}
                 <div>
                   <div className="flex items-center gap-2 mb-2.5">
                     <ShieldCheck className="h-4 w-4 text-primary" />
-                    <h5 className="text-sm font-semibold text-foreground">Precautions</h5>
+                    <h5 className="text-sm font-semibold text-foreground">{t("predictions.precautions")}</h5>
                   </div>
                   <ul className="space-y-1.5">
                     {details.precautions.map((p, i) => (
@@ -123,27 +120,25 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                   </ul>
                 </div>
 
-                {/* Recommended Tests */}
                 <div>
                   <div className="flex items-center gap-2 mb-2.5">
                     <TestTube className="h-4 w-4 text-primary" />
-                    <h5 className="text-sm font-semibold text-foreground">Recommended Tests</h5>
+                    <h5 className="text-sm font-semibold text-foreground">{t("predictions.tests")}</h5>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {details.tests.map((t, i) => (
+                    {details.tests.map((tt, i) => (
                       <span key={i} className="px-2.5 py-1 rounded-lg bg-primary/10 text-primary text-xs font-medium">
-                        {t}
+                        {tt}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Diet */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2.5">
                       <Apple className="h-4 w-4 text-success" />
-                      <h5 className="text-sm font-semibold text-foreground">Recommended Diet</h5>
+                      <h5 className="text-sm font-semibold text-foreground">{t("predictions.recommendedDiet")}</h5>
                     </div>
                     <ul className="space-y-1.5">
                       {details.diet.recommended.map((d, i) => (
@@ -157,7 +152,7 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                   <div>
                     <div className="flex items-center gap-2 mb-2.5">
                       <Ban className="h-4 w-4 text-destructive" />
-                      <h5 className="text-sm font-semibold text-foreground">Foods to Avoid</h5>
+                      <h5 className="text-sm font-semibold text-foreground">{t("predictions.foodsToAvoid")}</h5>
                     </div>
                     <ul className="space-y-1.5">
                       {details.diet.avoid.map((d, i) => (
@@ -177,9 +172,7 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
 
       <div className="rounded-lg bg-muted/50 border border-border p-4 mt-6">
         <p className="text-xs text-muted-foreground leading-relaxed">
-          <strong>⚠️ Disclaimer:</strong> This tool is for educational purposes only and should not
-          be used as a substitute for professional medical advice, diagnosis, or treatment. Always
-          consult a qualified healthcare provider.
+          <strong>⚠️ {t("predictions.disclaimer").split(".")[0]}.</strong> {t("predictions.disclaimer").split(".").slice(1).join(".")}
         </p>
       </div>
     </div>

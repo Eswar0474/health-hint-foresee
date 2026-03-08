@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { HealthCheck } from "@/hooks/useHealthHistory";
 import { Clock, Trash2, RotateCcw, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,24 +10,30 @@ interface HealthHistoryProps {
   onClear: () => void;
 }
 
-function timeAgo(ts: number): string {
-  const diff = Date.now() - ts;
-  const mins = Math.floor(diff / 60000);
-  if (mins < 1) return "Just now";
-  if (mins < 60) return `${mins}m ago`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs}h ago`;
-  const days = Math.floor(hrs / 24);
-  return `${days}d ago`;
+function useTimeAgo() {
+  const { t } = useTranslation();
+  return (ts: number) => {
+    const diff = Date.now() - ts;
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return t("time.justNow");
+    if (mins < 60) return t("time.minsAgo", { count: mins });
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return t("time.hrsAgo", { count: hrs });
+    const days = Math.floor(hrs / 24);
+    return t("time.daysAgo", { count: days });
+  };
 }
 
 export default function HealthHistory({ history, onRestore, onDelete, onClear }: HealthHistoryProps) {
+  const { t } = useTranslation();
+  const timeAgo = useTimeAgo();
+
   if (history.length === 0) {
     return (
       <div className="text-center py-8 text-muted-foreground">
         <Clock className="h-8 w-8 mx-auto mb-2 opacity-40" />
-        <p className="text-sm">No saved checks yet.</p>
-        <p className="text-xs mt-1">Save a symptom check to see it here.</p>
+        <p className="text-sm">{t("history.noChecks")}</p>
+        <p className="text-xs mt-1">{t("history.noChecksDesc")}</p>
       </div>
     );
   }
@@ -34,10 +41,12 @@ export default function HealthHistory({ history, onRestore, onDelete, onClear }:
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">{history.length} saved check{history.length !== 1 ? "s" : ""}</span>
+        <span className="text-xs text-muted-foreground">
+          {t("history.savedChecks", { count: history.length })}
+        </span>
         <Button variant="ghost" size="sm" className="h-7 text-xs text-destructive hover:text-destructive" onClick={onClear}>
           <Trash2 className="h-3 w-3 mr-1" />
-          Clear all
+          {t("history.clearAll")}
         </Button>
       </div>
 
@@ -56,14 +65,14 @@ export default function HealthHistory({ history, onRestore, onDelete, onClear }:
                 <button
                   onClick={() => onRestore(check.symptoms)}
                   className="p-1 rounded hover:bg-primary/10 text-primary transition-colors"
-                  title="Restore symptoms"
+                  title={t("history.restoreSymptoms")}
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                 </button>
                 <button
                   onClick={() => onDelete(check.id)}
                   className="p-1 rounded hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
-                  title="Delete"
+                  title={t("history.delete")}
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -72,7 +81,7 @@ export default function HealthHistory({ history, onRestore, onDelete, onClear }:
 
             {check.topResult && (
               <p className="text-xs font-medium text-foreground mb-1.5">
-                Top: {check.topResult}{" "}
+                {t("history.top")}: {check.topResult}{" "}
                 <span className="text-primary font-bold">
                   {check.topScore ? `${Math.round(check.topScore * 100)}%` : ""}
                 </span>

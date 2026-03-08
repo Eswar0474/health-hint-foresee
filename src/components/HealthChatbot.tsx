@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { MessageCircle, X, Send, Loader2, Bot, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
@@ -7,18 +8,19 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/health-chat`;
 
-const SUGGESTIONS = [
-  "What should I do if I have a fever?",
-  "How can I boost my immunity?",
-  "When should I see a doctor?",
-];
-
 export default function HealthChatbot() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const suggestions = [
+    t("chat.suggestions.fever"),
+    t("chat.suggestions.immunity"),
+    t("chat.suggestions.doctor"),
+  ];
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -124,13 +126,12 @@ export default function HealthChatbot() {
 
   return (
     <div className="fixed bottom-5 left-5 z-50 w-[340px] sm:w-[380px] h-[500px] rounded-2xl border border-border bg-card shadow-elevated flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
-      {/* Header */}
       <div className="gradient-medical text-primary-foreground p-3 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-2">
           <Bot className="h-5 w-5" />
           <div>
-            <h3 className="font-display text-sm font-semibold">MediPredict AI</h3>
-            <p className="text-[10px] opacity-70">Health Assistant</p>
+            <h3 className="font-display text-sm font-semibold">{t("chat.title")}</h3>
+            <p className="text-[10px] opacity-70">{t("chat.subtitle")}</p>
           </div>
         </div>
         <Button
@@ -143,15 +144,14 @@ export default function HealthChatbot() {
         </Button>
       </div>
 
-      {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 space-y-3">
         {messages.length === 0 && (
           <div className="space-y-3 pt-4">
             <p className="text-sm text-muted-foreground text-center">
-              👋 Hi! I'm your health assistant. Ask me anything about symptoms, conditions, or wellness.
+              {t("chat.greeting")}
             </p>
             <div className="space-y-2">
-              {SUGGESTIONS.map((s) => (
+              {suggestions.map((s) => (
                 <button
                   key={s}
                   onClick={() => send(s)}
@@ -209,7 +209,6 @@ export default function HealthChatbot() {
         )}
       </div>
 
-      {/* Input */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -220,7 +219,7 @@ export default function HealthChatbot() {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask about health..."
+          placeholder={t("chat.placeholder")}
           className="flex-1 bg-secondary rounded-lg px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-1 focus:ring-primary"
           disabled={isLoading}
         />
@@ -235,7 +234,7 @@ export default function HealthChatbot() {
       </form>
 
       <p className="text-[9px] text-muted-foreground text-center pb-2 px-3">
-        Not a substitute for professional medical advice.
+        {t("chat.disclaimer")}
       </p>
     </div>
   );

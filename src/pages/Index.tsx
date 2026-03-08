@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import SymptomSelector from "@/components/SymptomSelector";
 import PredictionResults from "@/components/PredictionResults";
 import HealthHistory from "@/components/HealthHistory";
@@ -7,6 +8,7 @@ import { Activity, Stethoscope, ListChecks, Save, History, LogOut } from "lucide
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useHealthHistory } from "@/hooks/useHealthHistory";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useAuth } from "@/contexts/AuthContext";
 import HealthChatbot from "@/components/HealthChatbot";
 import {
@@ -21,6 +23,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 
 const Index = () => {
+  const { t } = useTranslation();
   const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -42,17 +45,17 @@ const Index = () => {
 
   const handleSave = () => {
     if (selectedSymptoms.length === 0) {
-      toast.error("Select at least one symptom before saving.");
+      toast.error(t("toast.selectFirst"));
       return;
     }
     const top = results[0] ?? null;
     saveCheck(selectedSymptoms, top?.disease.name ?? null, top?.score ?? null);
-    toast.success("Symptom check saved!");
+    toast.success(t("toast.saved"));
   };
 
   const handleRestore = (symptoms: string[]) => {
     setSelectedSymptoms(symptoms);
-    toast.info("Symptoms restored from history.");
+    toast.info(t("toast.restored"));
   };
 
   return (
@@ -66,29 +69,29 @@ const Index = () => {
                 <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
               <h1 className="font-display text-xl sm:text-2xl md:text-3xl font-bold">
-                MediPredict
+                {t("app.title")}
               </h1>
             </div>
             <div className="flex items-center gap-2">
+              <LanguageSwitcher />
               <ThemeToggle />
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={signOut}
                 className="rounded-xl bg-primary-foreground/15 hover:bg-primary-foreground/25 text-primary-foreground h-8 w-8 sm:h-10 sm:w-10"
-                title={user?.email ?? "Sign out"}
+                title={user?.email ?? t("actions.signOut")}
               >
                 <LogOut className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </div>
           </div>
           <p className="text-primary-foreground/80 max-w-lg text-xs sm:text-sm md:text-base">
-            Symptom-based multi-disease prediction system. Select your symptoms to
-            identify possible conditions using pattern matching analysis.
+            {t("app.subtitle")}
           </p>
           <div className="flex items-center gap-2 mt-3 sm:mt-4 text-primary-foreground/60 text-[10px] sm:text-xs">
             <Activity className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-            <span>6 diseases • 36 symptoms • Weighted pattern matching engine</span>
+            <span>{t("app.stats")}</span>
           </div>
         </div>
       </header>
@@ -96,14 +99,13 @@ const Index = () => {
       {/* Main content */}
       <main className="container max-w-6xl mx-auto px-3 sm:px-4 py-5 sm:py-8">
         {isMobile ? (
-          /* Mobile: full-width results + floating drawer button */
           <div>
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-display text-base font-semibold text-foreground">
-                Predictions
+                {t("predictions.title")}
                 {results.length > 0 && (
                   <span className="ml-2 text-sm font-normal text-muted-foreground">
-                    ({results.length} results)
+                    ({results.length} {t("predictions.results")})
                   </span>
                 )}
               </h2>
@@ -115,16 +117,16 @@ const Index = () => {
                 disabled={selectedSymptoms.length === 0}
               >
                 <Save className="h-3.5 w-3.5 mr-1" />
-                Save Check
+                {t("actions.saveCheck")}
               </Button>
             </div>
 
             <Tabs defaultValue="predictions" className="w-full">
               <TabsList className="w-full mb-3">
-                <TabsTrigger value="predictions" className="flex-1">Predictions</TabsTrigger>
+                <TabsTrigger value="predictions" className="flex-1">{t("predictions.title")}</TabsTrigger>
                 <TabsTrigger value="history" className="flex-1">
                   <History className="h-3.5 w-3.5 mr-1" />
-                  History
+                  {t("history.title")}
                   {history.length > 0 && (
                     <span className="ml-1 text-[10px] bg-primary/15 text-primary rounded-full px-1.5">
                       {history.length}
@@ -145,7 +147,6 @@ const Index = () => {
               </TabsContent>
             </Tabs>
 
-            {/* Floating button to open symptom drawer */}
             <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
               <DrawerTrigger asChild>
                 <Button
@@ -162,7 +163,7 @@ const Index = () => {
               </DrawerTrigger>
               <DrawerContent className="max-h-[85vh]">
                 <DrawerHeader className="pb-2">
-                  <DrawerTitle className="font-display">Select Symptoms</DrawerTitle>
+                  <DrawerTitle className="font-display">{t("symptoms.title")}</DrawerTitle>
                 </DrawerHeader>
                 <div className="px-4 pb-6 overflow-y-auto">
                   <SymptomSelector
@@ -175,13 +176,12 @@ const Index = () => {
             </Drawer>
           </div>
         ) : (
-          /* Desktop: side-by-side layout */
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-8">
             <div className="lg:col-span-2">
               <div className="lg:sticky lg:top-4 space-y-6">
                 <div>
                   <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
-                    Select Symptoms
+                    {t("symptoms.title")}
                   </h2>
                   <SymptomSelector
                     selected={selectedSymptoms}
@@ -190,21 +190,19 @@ const Index = () => {
                   />
                 </div>
 
-                {/* Save button */}
                 <Button
                   className="w-full"
                   onClick={handleSave}
                   disabled={selectedSymptoms.length === 0}
                 >
                   <Save className="h-4 w-4 mr-2" />
-                  Save This Check
+                  {t("actions.saveThisCheck")}
                 </Button>
 
-                {/* History section */}
                 <div>
                   <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4 flex items-center gap-2">
                     <History className="h-4 w-4" />
-                    History
+                    {t("history.title")}
                     {history.length > 0 && (
                       <span className="text-xs font-normal bg-primary/10 text-primary rounded-full px-2 py-0.5">
                         {history.length}
@@ -222,10 +220,10 @@ const Index = () => {
             </div>
             <div className="lg:col-span-3">
               <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
-                Predictions
+                {t("predictions.title")}
                 {results.length > 0 && (
                   <span className="ml-2 text-sm font-normal text-muted-foreground">
-                    ({results.length} results)
+                    ({results.length} {t("predictions.results")})
                   </span>
                 )}
               </h2>

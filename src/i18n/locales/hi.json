@@ -1,0 +1,134 @@
+{
+  "app": {
+    "title": "MediPredict",
+    "subtitle": "लक्षण-आधारित बहु-रोग पूर्वानुमान प्रणाली। पैटर्न मिलान विश्लेषण का उपयोग करके संभावित स्थितियों की पहचान करने के लिए अपने लक्षण चुनें।",
+    "stats": "6 रोग • 36 लक्षण • भारित पैटर्न मिलान इंजन"
+  },
+  "symptoms": {
+    "title": "लक्षण चुनें",
+    "search": "लक्षण खोजें...",
+    "selected": "चयनित",
+    "clearAll": "सभी हटाएं",
+    "categories": {
+      "General": "सामान्य",
+      "Respiratory": "श्वसन",
+      "Digestive": "पाचन",
+      "Fever & Infection": "बुखार और संक्रमण",
+      "Skin & Appearance": "त्वचा और रूप",
+      "Urinary & Metabolic": "मूत्र और चयापचय",
+      "Eyes & Vision": "आँखें और दृष्टि",
+      "Circulatory": "परिसंचरण",
+      "Other": "अन्य"
+    },
+    "labels": {
+      "itching": "खुजली",
+      "chills": "ठंड लगना",
+      "vomiting": "उल्टी",
+      "fatigue": "थकान",
+      "weight_loss": "वजन कम होना",
+      "restlessness": "बेचैनी",
+      "lethargy": "सुस्ती",
+      "irregular_sugar_level": "अनियमित शर्करा स्तर",
+      "cough": "खांसी",
+      "high_fever": "तेज बुखार",
+      "breathlessness": "सांस फूलना",
+      "sweating": "पसीना",
+      "yellowish_skin": "पीली त्वचा",
+      "dark_urine": "गहरा मूत्र",
+      "nausea": "जी मिचलाना",
+      "loss_of_appetite": "भूख न लगना",
+      "abdominal_pain": "पेट दर्द",
+      "mild_fever": "हल्का बुखार",
+      "yellowing_of_eyes": "आँखों का पीला होना",
+      "swelled_lymph_nodes": "सूजी हुई लिम्फ नोड्स",
+      "malaise": "अस्वस्थता",
+      "blurred_and_distorted_vision": "धुंधली और विकृत दृष्टि",
+      "phlegm": "बलगम",
+      "chest_pain": "सीने में दर्द",
+      "fast_heart_rate": "तेज हृदय गति",
+      "obesity": "मोटापा",
+      "excessive_hunger": "अत्यधिक भूख",
+      "increased_appetite": "बढ़ी हुई भूख",
+      "polyuria": "बहुमूत्रता (बार-बार पेशाब)",
+      "family_history": "पारिवारिक इतिहास",
+      "mucoid_sputum": "श्लेष्मा थूक",
+      "rusty_sputum": "जंग रंग का थूक",
+      "blood_in_sputum": "थूक में खून",
+      "headache": "सिरदर्द",
+      "dehydration": "निर्जलीकरण",
+      "weakness_in_limbs": "अंगों में कमजोरी"
+    }
+  },
+  "predictions": {
+    "title": "पूर्वानुमान",
+    "results": "परिणाम",
+    "selectSymptoms": "अपने लक्षण चुनें",
+    "selectSymptomsDesc": "पैटर्न मिलान के आधार पर रोग पूर्वानुमान प्राप्त करने के लिए पैनल से लक्षण चुनें।",
+    "topConditions": "आपके लक्षणों के आधार पर शीर्ष {{count}} संभावित स्थितियां",
+    "match": "मिलान",
+    "severity": {
+      "low": "कम",
+      "medium": "मध्यम",
+      "high": "उच्च"
+    },
+    "severityLabel": "गंभीरता",
+    "viewDetails": "सावधानियां, परीक्षण और आहार देखें",
+    "hideDetails": "सावधानियां, परीक्षण और आहार छिपाएं",
+    "precautions": "सावधानियां",
+    "tests": "अनुशंसित परीक्षण",
+    "recommendedDiet": "अनुशंसित आहार",
+    "foodsToAvoid": "परहेज करने वाले खाद्य पदार्थ",
+    "disclaimer": "यह उपकरण केवल शैक्षिक उद्देश्यों के लिए है और इसे पेशेवर चिकित्सा सलाह, निदान या उपचार के विकल्प के रूप में उपयोग नहीं किया जाना चाहिए। हमेशा एक योग्य स्वास्थ्य सेवा प्रदाता से परामर्श करें।"
+  },
+  "history": {
+    "title": "इतिहास",
+    "noChecks": "अभी तक कोई सहेजी गई जांच नहीं।",
+    "noChecksDesc": "इसे यहां देखने के लिए एक लक्षण जांच सहेजें।",
+    "savedChecks": "{{count}} सहेजी गई जांच",
+    "savedChecks_plural": "{{count}} सहेजी गई जांचें",
+    "clearAll": "सभी हटाएं",
+    "top": "शीर्ष",
+    "restoreSymptoms": "लक्षण पुनर्स्थापित करें",
+    "delete": "हटाएं"
+  },
+  "actions": {
+    "saveCheck": "जांच सहेजें",
+    "saveThisCheck": "यह जांच सहेजें",
+    "signOut": "साइन आउट"
+  },
+  "chat": {
+    "title": "MediPredict AI",
+    "subtitle": "स्वास्थ्य सहायक",
+    "greeting": "👋 नमस्ते! मैं आपका स्वास्थ्य सहायक हूं। लक्षणों, स्थितियों या कल्याण के बारे में कुछ भी पूछें।",
+    "placeholder": "स्वास्थ्य के बारे में पूछें...",
+    "disclaimer": "पेशेवर चिकित्सा सलाह का विकल्प नहीं।",
+    "suggestions": {
+      "fever": "बुखार होने पर मुझे क्या करना चाहिए?",
+      "immunity": "मैं अपनी रोग प्रतिरोधक क्षमता कैसे बढ़ा सकता हूं?",
+      "doctor": "मुझे डॉक्टर को कब दिखाना चाहिए?"
+    }
+  },
+  "auth": {
+    "signIn": "साइन इन",
+    "signUp": "साइन अप",
+    "signInDesc": "अपना स्वास्थ्य इतिहास देखने के लिए साइन इन करें",
+    "signUpDesc": "अपनी जांच सहेजने के लिए खाता बनाएं",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "noAccount": "खाता नहीं है?",
+    "hasAccount": "पहले से खाता है?",
+    "welcomeBack": "वापसी पर स्वागत है!",
+    "accountCreated": "खाता बनाया गया! आप अब साइन इन हैं।"
+  },
+  "toast": {
+    "saved": "लक्षण जांच सहेजी गई!",
+    "selectFirst": "सहेजने से पहले कम से कम एक लक्षण चुनें।",
+    "restored": "इतिहास से लक्षण पुनर्स्थापित किए गए।"
+  },
+  "time": {
+    "justNow": "अभी",
+    "minsAgo": "{{count}} मिनट पहले",
+    "hrsAgo": "{{count}} घंटे पहले",
+    "daysAgo": "{{count}} दिन पहले"
+  }
+}
