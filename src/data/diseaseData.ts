@@ -168,17 +168,15 @@ export const SYMPTOM_LABELS: Record<string, string> = {
 
 // Symptom categories for better UX
 export const SYMPTOM_CATEGORIES: Record<string, string[]> = {
-  "General": ["fatigue", "weight_gain", "weight_loss", "restlessness", "lethargy", "malaise", "dehydration", "obesity", "anxiety", "depression", "irritability", "mood_swings"],
-  "Skin": ["itching", "skin_rash", "nodal_skin_eruptions", "yellowish_skin", "dischromic_patches", "pus_filled_pimples", "blackheads", "scurring", "skin_peeling", "silver_like_dusting", "blister", "red_sore_around_nose", "yellow_crust_ooze", "red_spots_over_body", "bruising"],
-  "Head & Neck": ["headache", "neck_pain", "dizziness", "spinning_movements", "loss_of_balance", "unsteadiness", "loss_of_smell", "blurred_and_distorted_vision", "visual_disturbances", "lack_of_concentration", "slurred_speech", "altered_sensorium", "stiff_neck", "weakness_of_one_body_side", "puffy_face_and_eyes", "enlarged_thyroid"],
-  "Respiratory": ["continuous_sneezing", "cough", "breathlessness", "phlegm", "throat_irritation", "sinus_pressure", "runny_nose", "congestion", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum"],
-  "Digestive": ["stomach_pain", "acidity", "ulcers_on_tongue", "vomiting", "nausea", "indigestion", "constipation", "abdominal_pain", "diarrhoea", "loss_of_appetite", "passage_of_gases", "internal_itching", "belly_pain", "swelling_of_stomach", "distention_of_abdomen", "stomach_bleeding", "acute_liver_failure"],
-  "Fever & Infection": ["shivering", "chills", "high_fever", "mild_fever", "sweating", "toxic_look_typhos", "patches_in_throat", "swelled_lymph_nodes"],
-  "Urinary": ["burning_micturition", "spotting_urination", "dark_urine", "yellow_urine", "bladder_discomfort", "foul_smell_of_urine", "continuous_feel_of_urine", "polyuria"],
-  "Musculoskeletal": ["joint_pain", "muscle_wasting", "muscle_weakness", "muscle_pain", "back_pain", "knee_pain", "hip_joint_pain", "swelling_joints", "movement_stiffness", "weakness_in_limbs", "cramps"],
-  "Eyes": ["sunken_eyes", "redness_of_eyes", "watering_from_eyes", "pain_behind_the_eyes", "yellowing_of_eyes"],
-  "Circulatory": ["fast_heart_rate", "swollen_legs", "swollen_blood_vessels", "cold_hands_and_feets", "palpitations", "prominent_veins_on_calf", "fluid_overload", "fluid_overload_2"],
-  "Other": ["extra_marital_contacts", "drying_and_tingling_lips", "swollen_extremeties", "excessive_hunger", "brittle_nails", "small_dents_in_nails", "inflammatory_nails", "increased_appetite", "irregular_sugar_level", "family_history", "receiving_blood_transfusion", "receiving_unsterile_injections", "coma", "history_of_alcohol_consumption", "painful_walking", "abnormal_menstruation", "pain_during_bowel_movements", "pain_in_anal_region", "bloody_stool", "irritation_in_anus"],
+  "General": ["fatigue", "weight_loss", "restlessness", "lethargy", "malaise", "obesity"],
+  "Skin & Appearance": ["itching", "yellowish_skin"],
+  "Respiratory": ["cough", "breathlessness", "phlegm", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum"],
+  "Digestive": ["vomiting", "loss_of_appetite", "abdominal_pain"],
+  "Fever & Infection": ["chills", "high_fever", "mild_fever", "sweating", "swelled_lymph_nodes"],
+  "Urinary & Metabolic": ["dark_urine", "polyuria", "irregular_sugar_level"],
+  "Eyes & Vision": ["blurred_and_distorted_vision", "yellowing_of_eyes"],
+  "Circulatory": ["fast_heart_rate"],
+  "Other": ["excessive_hunger", "increased_appetite", "family_history"],
 };
 
 // Disease profiles: disease name -> array of symptom keys that are typically present
