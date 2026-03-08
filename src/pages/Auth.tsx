@@ -28,7 +28,7 @@ export default function AuthPage() {
           options: { emailRedirectTo: window.location.origin },
         });
         if (error) throw error;
-        toast.success("Account created! Check your email to verify.");
+        toast.success("Account created! You're now signed in.");
       }
     } catch (err: any) {
       toast.error(err.message);
