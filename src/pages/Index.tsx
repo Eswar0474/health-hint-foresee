@@ -37,13 +37,16 @@ const Index = () => {
       {/* Header */}
       <header className="gradient-hero text-primary-foreground">
         <div className="container max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-10">
-          <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
-              <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5" />
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary-foreground/15 flex items-center justify-center">
+                <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5" />
+              </div>
+              <h1 className="font-display text-xl sm:text-2xl md:text-3xl font-bold">
+                MediPredict
+              </h1>
             </div>
-            <h1 className="font-display text-xl sm:text-2xl md:text-3xl font-bold">
-              MediPredict
-            </h1>
+            <ThemeToggle />
           </div>
           <p className="text-primary-foreground/80 max-w-lg text-xs sm:text-sm md:text-base">
             Symptom-based multi-disease prediction system. Select your symptoms to
