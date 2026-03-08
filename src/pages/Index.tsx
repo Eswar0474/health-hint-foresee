@@ -7,6 +7,7 @@ import { Activity, Stethoscope, ListChecks, Save, History, LogOut } from "lucide
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useHealthHistory } from "@/hooks/useHealthHistory";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   Drawer,
   DrawerContent,
