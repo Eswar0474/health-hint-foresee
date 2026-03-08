@@ -94,29 +94,6 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                 {disease.description}
               </p>
 
-              {/* Matched symptoms */}
-              <div className="space-y-1 mb-3">
-                <p className="text-xs font-medium text-muted-foreground">
-                  Matching symptoms ({matchedSymptoms.length}/{disease.symptoms.length}):
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {disease.symptoms.map((s) => {
-                    const isMatched = selectedSymptoms.includes(s);
-                    return (
-                      <span
-                        key={s}
-                        className={`px-2 py-0.5 rounded text-xs ${
-                          isMatched
-                            ? "bg-primary/15 text-primary font-medium"
-                            : "bg-muted text-muted-foreground"
-                        }`}
-                      >
-                        {SYMPTOM_LABELS[s] || s}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
 
               {/* Expand button */}
               {details && (
