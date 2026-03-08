@@ -74,8 +74,8 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
                     </span>
                   </div>
                 </div>
-                <div className="text-right">
-                  <span className="font-display text-2xl font-bold text-primary">
+                <div className="text-right ml-2">
+                  <span className="font-display text-xl sm:text-2xl font-bold text-primary">
                     {percentage}%
                   </span>
                   <p className="text-xs text-muted-foreground">match</p>
