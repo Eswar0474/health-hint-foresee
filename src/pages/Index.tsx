@@ -3,6 +3,7 @@ import SymptomSelector from "@/components/SymptomSelector";
 import PredictionResults from "@/components/PredictionResults";
 import { predictDiseases } from "@/data/diseaseData";
 import { Activity, Stethoscope, ListChecks } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Drawer,
