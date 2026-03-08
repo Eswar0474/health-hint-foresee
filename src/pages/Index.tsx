@@ -24,6 +24,7 @@ const Index = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useIsMobile();
   const { history, saveCheck, deleteCheck, clearHistory } = useHealthHistory();
+  const { signOut, user } = useAuth();
 
   const handleToggle = (symptom: string) => {
     setSelectedSymptoms((prev) =>
