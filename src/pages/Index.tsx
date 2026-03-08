@@ -234,6 +234,7 @@ const Index = () => {
           </div>
         )}
       </main>
+      <HealthChatbot />
     </div>
   );
 };
