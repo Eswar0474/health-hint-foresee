@@ -8,6 +8,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useHealthHistory } from "@/hooks/useHealthHistory";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useAuth } from "@/contexts/AuthContext";
+import HealthChatbot from "@/components/HealthChatbot";
 import {
   Drawer,
   DrawerContent,
