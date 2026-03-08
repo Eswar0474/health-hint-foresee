@@ -1,10 +1,12 @@
 import { useState, useMemo } from "react";
 import SymptomSelector from "@/components/SymptomSelector";
 import PredictionResults from "@/components/PredictionResults";
+import HealthHistory from "@/components/HealthHistory";
 import { predictDiseases } from "@/data/diseaseData";
-import { Activity, Stethoscope, ListChecks } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import { Activity, Stethoscope, ListChecks, Save, History } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useHealthHistory } from "@/hooks/useHealthHistory";
+import ThemeToggle from "@/components/ThemeToggle";
 import {
   Drawer,
   DrawerContent,
@@ -13,11 +15,14 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { toast } from "sonner";
 
 const Index = () => {
   const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { history, saveCheck, deleteCheck, clearHistory } = useHealthHistory();
 
   const handleToggle = (symptom: string) => {
     setSelectedSymptoms((prev) =>
@@ -31,6 +36,21 @@ const Index = () => {
     () => predictDiseases(selectedSymptoms),
     [selectedSymptoms]
   );
+
+  const handleSave = () => {
+    if (selectedSymptoms.length === 0) {
+      toast.error("Select at least one symptom before saving.");
+      return;
+    }
+    const top = results[0] ?? null;
+    saveCheck(selectedSymptoms, top?.disease.name ?? null, top?.score ?? null);
+    toast.success("Symptom check saved!");
+  };
+
+  const handleRestore = (symptoms: string[]) => {
+    setSelectedSymptoms(symptoms);
+    toast.info("Symptoms restored from history.");
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -64,15 +84,52 @@ const Index = () => {
         {isMobile ? (
           /* Mobile: full-width results + floating drawer button */
           <div>
-            <h2 className="font-display text-base font-semibold text-foreground mb-3">
-              Predictions
-              {results.length > 0 && (
-                <span className="ml-2 text-sm font-normal text-muted-foreground">
-                  ({results.length} results)
-                </span>
-              )}
-            </h2>
-            <PredictionResults results={results} selectedSymptoms={selectedSymptoms} />
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="font-display text-base font-semibold text-foreground">
+                Predictions
+                {results.length > 0 && (
+                  <span className="ml-2 text-sm font-normal text-muted-foreground">
+                    ({results.length} results)
+                  </span>
+                )}
+              </h2>
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-8 text-xs"
+                onClick={handleSave}
+                disabled={selectedSymptoms.length === 0}
+              >
+                <Save className="h-3.5 w-3.5 mr-1" />
+                Save Check
+              </Button>
+            </div>
+
+            <Tabs defaultValue="predictions" className="w-full">
+              <TabsList className="w-full mb-3">
+                <TabsTrigger value="predictions" className="flex-1">Predictions</TabsTrigger>
+                <TabsTrigger value="history" className="flex-1">
+                  <History className="h-3.5 w-3.5 mr-1" />
+                  History
+                  {history.length > 0 && (
+                    <span className="ml-1 text-[10px] bg-primary/15 text-primary rounded-full px-1.5">
+                      {history.length}
+                    </span>
+                  )}
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent value="predictions">
+                <PredictionResults results={results} selectedSymptoms={selectedSymptoms} />
+              </TabsContent>
+              <TabsContent value="history">
+                <HealthHistory
+                  history={history}
+                  onRestore={handleRestore}
+                  onDelete={deleteCheck}
+                  onClear={clearHistory}
+                />
+              </TabsContent>
+            </Tabs>
 
             {/* Floating button to open symptom drawer */}
             <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
@@ -107,15 +164,46 @@ const Index = () => {
           /* Desktop: side-by-side layout */
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-8">
             <div className="lg:col-span-2">
-              <div className="lg:sticky lg:top-4">
-                <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
-                  Select Symptoms
-                </h2>
-                <SymptomSelector
-                  selected={selectedSymptoms}
-                  onToggle={handleToggle}
-                  onClear={() => setSelectedSymptoms([])}
-                />
+              <div className="lg:sticky lg:top-4 space-y-6">
+                <div>
+                  <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
+                    Select Symptoms
+                  </h2>
+                  <SymptomSelector
+                    selected={selectedSymptoms}
+                    onToggle={handleToggle}
+                    onClear={() => setSelectedSymptoms([])}
+                  />
+                </div>
+
+                {/* Save button */}
+                <Button
+                  className="w-full"
+                  onClick={handleSave}
+                  disabled={selectedSymptoms.length === 0}
+                >
+                  <Save className="h-4 w-4 mr-2" />
+                  Save This Check
+                </Button>
+
+                {/* History section */}
+                <div>
+                  <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4 flex items-center gap-2">
+                    <History className="h-4 w-4" />
+                    History
+                    {history.length > 0 && (
+                      <span className="text-xs font-normal bg-primary/10 text-primary rounded-full px-2 py-0.5">
+                        {history.length}
+                      </span>
+                    )}
+                  </h2>
+                  <HealthHistory
+                    history={history}
+                    onRestore={handleRestore}
+                    onDelete={deleteCheck}
+                    onClear={clearHistory}
+                  />
+                </div>
               </div>
             </div>
             <div className="lg:col-span-3">
