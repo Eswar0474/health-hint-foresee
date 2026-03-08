@@ -1,0 +1,134 @@
+{
+  "app": {
+    "title": "MediPredict",
+    "subtitle": "Symptom-based multi-disease prediction system. Select your symptoms to identify possible conditions using pattern matching analysis.",
+    "stats": "6 diseases • 36 symptoms • Weighted pattern matching engine"
+  },
+  "symptoms": {
+    "title": "Select Symptoms",
+    "search": "Search symptoms...",
+    "selected": "Selected",
+    "clearAll": "Clear all",
+    "categories": {
+      "General": "General",
+      "Respiratory": "Respiratory",
+      "Digestive": "Digestive",
+      "Fever & Infection": "Fever & Infection",
+      "Skin & Appearance": "Skin & Appearance",
+      "Urinary & Metabolic": "Urinary & Metabolic",
+      "Eyes & Vision": "Eyes & Vision",
+      "Circulatory": "Circulatory",
+      "Other": "Other"
+    },
+    "labels": {
+      "itching": "Itching",
+      "chills": "Chills",
+      "vomiting": "Vomiting",
+      "fatigue": "Fatigue",
+      "weight_loss": "Weight Loss",
+      "restlessness": "Restlessness",
+      "lethargy": "Lethargy",
+      "irregular_sugar_level": "Irregular Sugar Level",
+      "cough": "Cough",
+      "high_fever": "High Fever",
+      "breathlessness": "Breathlessness",
+      "sweating": "Sweating",
+      "yellowish_skin": "Yellowish Skin",
+      "dark_urine": "Dark Urine",
+      "nausea": "Nausea",
+      "loss_of_appetite": "Loss of Appetite",
+      "abdominal_pain": "Abdominal Pain",
+      "mild_fever": "Mild Fever",
+      "yellowing_of_eyes": "Yellowing of Eyes",
+      "swelled_lymph_nodes": "Swelled Lymph Nodes",
+      "malaise": "Malaise",
+      "blurred_and_distorted_vision": "Blurred & Distorted Vision",
+      "phlegm": "Phlegm",
+      "chest_pain": "Chest Pain",
+      "fast_heart_rate": "Fast Heart Rate",
+      "obesity": "Obesity",
+      "excessive_hunger": "Excessive Hunger",
+      "increased_appetite": "Increased Appetite",
+      "polyuria": "Polyuria (Frequent Urination)",
+      "family_history": "Family History",
+      "mucoid_sputum": "Mucoid Sputum",
+      "rusty_sputum": "Rusty Sputum",
+      "blood_in_sputum": "Blood in Sputum",
+      "headache": "Headache",
+      "dehydration": "Dehydration",
+      "weakness_in_limbs": "Weakness in Limbs"
+    }
+  },
+  "predictions": {
+    "title": "Predictions",
+    "results": "results",
+    "selectSymptoms": "Select Your Symptoms",
+    "selectSymptomsDesc": "Choose symptoms from the panel to get disease predictions based on pattern matching.",
+    "topConditions": "Top {{count}} possible conditions based on your symptoms",
+    "match": "match",
+    "severity": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "severityLabel": "Severity",
+    "viewDetails": "View Precautions, Tests & Diet",
+    "hideDetails": "Hide Precautions, Tests & Diet",
+    "precautions": "Precautions",
+    "tests": "Recommended Tests",
+    "recommendedDiet": "Recommended Diet",
+    "foodsToAvoid": "Foods to Avoid",
+    "disclaimer": "This tool is for educational purposes only and should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider."
+  },
+  "history": {
+    "title": "History",
+    "noChecks": "No saved checks yet.",
+    "noChecksDesc": "Save a symptom check to see it here.",
+    "savedChecks": "{{count}} saved check",
+    "savedChecks_plural": "{{count}} saved checks",
+    "clearAll": "Clear all",
+    "top": "Top",
+    "restoreSymptoms": "Restore symptoms",
+    "delete": "Delete"
+  },
+  "actions": {
+    "saveCheck": "Save Check",
+    "saveThisCheck": "Save This Check",
+    "signOut": "Sign out"
+  },
+  "chat": {
+    "title": "MediPredict AI",
+    "subtitle": "Health Assistant",
+    "greeting": "👋 Hi! I'm your health assistant. Ask me anything about symptoms, conditions, or wellness.",
+    "placeholder": "Ask about health...",
+    "disclaimer": "Not a substitute for professional medical advice.",
+    "suggestions": {
+      "fever": "What should I do if I have a fever?",
+      "immunity": "How can I boost my immunity?",
+      "doctor": "When should I see a doctor?"
+    }
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signInDesc": "Sign in to access your health history",
+    "signUpDesc": "Create an account to save your checks",
+    "email": "Email",
+    "password": "Password",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "welcomeBack": "Welcome back!",
+    "accountCreated": "Account created! You're now signed in."
+  },
+  "toast": {
+    "saved": "Symptom check saved!",
+    "selectFirst": "Select at least one symptom before saving.",
+    "restored": "Symptoms restored from history."
+  },
+  "time": {
+    "justNow": "Just now",
+    "minsAgo": "{{count}}m ago",
+    "hrsAgo": "{{count}}h ago",
+    "daysAgo": "{{count}}d ago"
+  }
+}
