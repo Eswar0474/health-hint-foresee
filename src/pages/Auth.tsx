@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Stethoscope, Mail, Lock, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function AuthPage() {
+  const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +23,7 @@ export default function AuthPage() {
       if (isLogin) {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        toast.success("Welcome back!");
+        toast.success(t("auth.welcomeBack"));
       } else {
         const { error } = await supabase.auth.signUp({
           email,
@@ -28,7 +31,7 @@ export default function AuthPage() {
           options: { emailRedirectTo: window.location.origin },
         });
         if (error) throw error;
-        toast.success("Account created! You're now signed in.");
+        toast.success(t("auth.accountCreated"));
       }
     } catch (err: any) {
       toast.error(err.message);
@@ -39,20 +42,25 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <div className="absolute top-4 right-4">
+        <div className="bg-card rounded-xl p-1">
+          <LanguageSwitcher />
+        </div>
+      </div>
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center space-y-2">
           <div className="w-12 h-12 rounded-xl gradient-medical flex items-center justify-center mx-auto text-primary-foreground">
             <Stethoscope className="h-6 w-6" />
           </div>
-          <h1 className="font-display text-2xl font-bold text-foreground">MediPredict</h1>
+          <h1 className="font-display text-2xl font-bold text-foreground">{t("app.title")}</h1>
           <p className="text-sm text-muted-foreground">
-            {isLogin ? "Sign in to access your health history" : "Create an account to save your checks"}
+            {isLogin ? t("auth.signInDesc") : t("auth.signUpDesc")}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">{t("auth.email")}</Label>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -68,7 +76,7 @@ export default function AuthPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">{t("auth.password")}</Label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -86,17 +94,17 @@ export default function AuthPage() {
 
           <Button type="submit" className="w-full" disabled={loading}>
             {loading && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
-            {isLogin ? "Sign In" : "Sign Up"}
+            {isLogin ? t("auth.signIn") : t("auth.signUp")}
           </Button>
         </form>
 
         <p className="text-center text-sm text-muted-foreground">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+          {isLogin ? t("auth.noAccount") : t("auth.hasAccount")}{" "}
           <button
             onClick={() => setIsLogin(!isLogin)}
             className="text-primary font-medium hover:underline"
           >
-            {isLogin ? "Sign Up" : "Sign In"}
+            {isLogin ? t("auth.signUp") : t("auth.signIn")}
           </button>
         </p>
       </div>
