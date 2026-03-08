@@ -56,10 +56,10 @@ export default function PredictionResults({ results, selectedSymptoms }: Predict
             key={disease.name}
             className="rounded-xl border border-border bg-card shadow-card transition-all hover:shadow-elevated overflow-hidden"
           >
-            <div className="p-5">
+            <div className="p-3 sm:p-5">
               <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-display font-bold text-sm">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 text-primary font-display font-bold text-xs sm:text-sm">
                     {index + 1}
                   </span>
                   <div>
