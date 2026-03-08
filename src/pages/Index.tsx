@@ -2,10 +2,21 @@ import { useState, useMemo } from "react";
 import SymptomSelector from "@/components/SymptomSelector";
 import PredictionResults from "@/components/PredictionResults";
 import { predictDiseases } from "@/data/diseaseData";
-import { Activity, Stethoscope } from "lucide-react";
+import { Activity, Stethoscope, ListChecks } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleToggle = (symptom: string) => {
     setSelectedSymptoms((prev) =>
@@ -46,24 +57,10 @@ const Index = () => {
 
       {/* Main content */}
       <main className="container max-w-6xl mx-auto px-3 sm:px-4 py-5 sm:py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-8">
-          {/* Symptom selector */}
-          <div className="lg:col-span-2">
-            <div className="lg:sticky lg:top-4">
-              <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
-                Select Symptoms
-              </h2>
-              <SymptomSelector
-                selected={selectedSymptoms}
-                onToggle={handleToggle}
-                onClear={() => setSelectedSymptoms([])}
-              />
-            </div>
-          </div>
-
-          {/* Results */}
-          <div className="lg:col-span-3">
-          <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
+        {isMobile ? (
+          /* Mobile: full-width results + floating drawer button */
+          <div>
+            <h2 className="font-display text-base font-semibold text-foreground mb-3">
               Predictions
               {results.length > 0 && (
                 <span className="ml-2 text-sm font-normal text-muted-foreground">
@@ -71,12 +68,65 @@ const Index = () => {
                 </span>
               )}
             </h2>
-            <PredictionResults
-              results={results}
-              selectedSymptoms={selectedSymptoms}
-            />
+            <PredictionResults results={results} selectedSymptoms={selectedSymptoms} />
+
+            {/* Floating button to open symptom drawer */}
+            <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
+              <DrawerTrigger asChild>
+                <Button
+                  className="fixed bottom-5 right-5 z-50 rounded-full h-14 w-14 shadow-elevated gradient-medical text-primary-foreground p-0"
+                  size="icon"
+                >
+                  <ListChecks className="h-6 w-6" />
+                  {selectedSymptoms.length > 0 && (
+                    <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-[10px] font-bold flex items-center justify-center">
+                      {selectedSymptoms.length}
+                    </span>
+                  )}
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent className="max-h-[85vh]">
+                <DrawerHeader className="pb-2">
+                  <DrawerTitle className="font-display">Select Symptoms</DrawerTitle>
+                </DrawerHeader>
+                <div className="px-4 pb-6 overflow-y-auto">
+                  <SymptomSelector
+                    selected={selectedSymptoms}
+                    onToggle={handleToggle}
+                    onClear={() => setSelectedSymptoms([])}
+                  />
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
-        </div>
+        ) : (
+          /* Desktop: side-by-side layout */
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-8">
+            <div className="lg:col-span-2">
+              <div className="lg:sticky lg:top-4">
+                <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
+                  Select Symptoms
+                </h2>
+                <SymptomSelector
+                  selected={selectedSymptoms}
+                  onToggle={handleToggle}
+                  onClear={() => setSelectedSymptoms([])}
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-3">
+              <h2 className="font-display text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">
+                Predictions
+                {results.length > 0 && (
+                  <span className="ml-2 text-sm font-normal text-muted-foreground">
+                    ({results.length} results)
+                  </span>
+                )}
+              </h2>
+              <PredictionResults results={results} selectedSymptoms={selectedSymptoms} />
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
