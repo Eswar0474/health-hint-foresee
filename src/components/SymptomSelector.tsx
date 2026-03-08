@@ -71,7 +71,7 @@ export default function SymptomSelector({ selected, onToggle, onClear }: Symptom
       )}
 
       {/* Categories */}
-      <div className="space-y-1 max-h-[400px] overflow-y-auto pr-1">
+      <div className="space-y-1 max-h-[50vh] lg:max-h-[400px] overflow-y-auto pr-1">
         {Object.entries(filteredCategories).map(([category, symptoms]) => (
           <div key={category} className="rounded-lg border border-border overflow-hidden">
             <button
