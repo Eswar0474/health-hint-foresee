@@ -156,10 +156,10 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Pneumonia",
-    symptoms: ["chills", "fatigue", "cough", "high_fever", "breathlessness", "sweating", "malaise", "phlegm", "chest_pain", "fast_heart_rate", "rusty_sputum"],
+    symptoms: ["chills", "fatigue", "cough", "high_fever", "breathlessness", "sweating", "malaise", "phlegm", "chest_pain", "fast_heart_rate", "rusty_sputum", "congestion", "throat_irritation", "muscle_pain", "loss_of_smell"],
     weights: {
       rusty_sputum: 3, fast_heart_rate: 2.5, malaise: 1.5, phlegm: 1.3, chest_pain: 1.3,
-      sweating: 1.2, breathlessness: 1.2, cough: 1, high_fever: 1, chills: 1, fatigue: 0.5
+      sweating: 1.2, breathlessness: 1.2, cough: 1, high_fever: 1, chills: 1, fatigue: 0.5, congestion: 0.7, throat_irritation: 0.6, muscle_pain: 0.7, loss_of_smell: 0.6
     },
     keySymptoms: ["rusty_sputum", "fast_heart_rate"],
     description: "Infection that inflames air sacs in one or both lungs.",
