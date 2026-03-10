@@ -143,12 +143,12 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Tuberculosis",
-    symptoms: ["chills", "vomiting", "fatigue", "weight_loss", "cough", "high_fever", "breathlessness", "sweating", "loss_of_appetite", "mild_fever", "yellowing_of_eyes", "swelled_lymph_nodes", "malaise", "phlegm", "chest_pain", "blood_in_sputum"],
+    symptoms: ["chills", "vomiting", "fatigue", "weight_loss", "cough", "high_fever", "breathlessness", "sweating", "loss_of_appetite", "mild_fever", "yellowing_of_eyes", "swelled_lymph_nodes", "malaise", "phlegm", "chest_pain", "blood_in_sputum", "night_sweats", "muscle_pain", "back_pain", "joint_pain"],
     weights: {
       blood_in_sputum: 3, yellowing_of_eyes: 2.5, swelled_lymph_nodes: 2, mild_fever: 2,
       loss_of_appetite: 1.5, malaise: 1.5, phlegm: 1.3, chest_pain: 1.3, cough: 1.2,
       breathlessness: 1, sweating: 1, chills: 1, high_fever: 1, weight_loss: 1,
-      vomiting: 0.8, fatigue: 0.5
+      vomiting: 0.8, fatigue: 0.5, night_sweats: 1.5, muscle_pain: 0.7, back_pain: 0.6, joint_pain: 0.6
     },
     keySymptoms: ["blood_in_sputum", "yellowing_of_eyes", "swelled_lymph_nodes"],
     description: "A potentially serious infectious bacterial disease affecting the lungs.",
