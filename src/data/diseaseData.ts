@@ -82,14 +82,15 @@ export const SYMPTOM_LABELS: Record<string, string> = {
 };
 
 export const SYMPTOM_CATEGORIES: Record<string, string[]> = {
-  "General": ["fatigue", "weight_loss", "restlessness", "lethargy", "malaise", "obesity", "weakness_in_limbs"],
-  "Respiratory": ["cough", "breathlessness", "phlegm", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum"],
-  "Digestive": ["vomiting", "nausea", "loss_of_appetite", "abdominal_pain"],
-  "Fever & Infection": ["chills", "high_fever", "mild_fever", "sweating", "swelled_lymph_nodes", "headache", "dehydration"],
-  "Skin & Appearance": ["itching", "yellowish_skin"],
+  "General": ["fatigue", "weight_loss", "restlessness", "lethargy", "malaise", "obesity", "weakness_in_limbs", "dizziness", "muscle_pain", "joint_pain", "back_pain", "muscle_wasting"],
+  "Respiratory": ["cough", "breathlessness", "phlegm", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum", "throat_irritation", "continuous_sneezing", "congestion", "runny_nose", "sinus_pressure"],
+  "Digestive": ["vomiting", "nausea", "loss_of_appetite", "abdominal_pain", "indigestion", "constipation", "diarrhoea", "acidity"],
+  "Fever & Infection": ["chills", "high_fever", "mild_fever", "sweating", "swelled_lymph_nodes", "headache", "dehydration", "night_sweats", "loss_of_smell"],
+  "Skin & Appearance": ["itching", "yellowish_skin", "skin_rash", "skin_peeling", "burning_sensation"],
   "Urinary & Metabolic": ["dark_urine", "polyuria", "irregular_sugar_level"],
   "Eyes & Vision": ["blurred_and_distorted_vision", "yellowing_of_eyes"],
-  "Circulatory": ["fast_heart_rate"],
+  "Circulatory": ["fast_heart_rate", "palpitations", "cold_hands_and_feet"],
+  "Mental & Behavioral": ["mood_swings", "anxiety", "irritability"],
   "Other": ["excessive_hunger", "increased_appetite", "family_history"],
 };
 
