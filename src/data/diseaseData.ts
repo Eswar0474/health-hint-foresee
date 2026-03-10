@@ -110,11 +110,11 @@ export interface DiseaseProfile {
 export const DISEASE_PROFILES: DiseaseProfile[] = [
   {
     name: "Diabetes",
-    symptoms: ["fatigue", "weight_loss", "restlessness", "lethargy", "irregular_sugar_level", "blurred_and_distorted_vision", "obesity", "excessive_hunger", "increased_appetite", "polyuria"],
+    symptoms: ["fatigue", "weight_loss", "restlessness", "lethargy", "irregular_sugar_level", "blurred_and_distorted_vision", "obesity", "excessive_hunger", "increased_appetite", "polyuria", "dizziness", "irritability", "muscle_wasting", "mood_swings"],
     weights: {
       polyuria: 3, irregular_sugar_level: 3, excessive_hunger: 2.5, increased_appetite: 2.5,
       obesity: 2, blurred_and_distorted_vision: 1.5, restlessness: 1.2, lethargy: 1.2,
-      weight_loss: 1, fatigue: 0.5
+      weight_loss: 1, fatigue: 0.5, dizziness: 0.8, irritability: 0.7, muscle_wasting: 0.8, mood_swings: 0.7
     },
     keySymptoms: ["polyuria", "irregular_sugar_level", "excessive_hunger", "increased_appetite"],
     description: "A metabolic disease causing high blood sugar levels due to insulin issues.",
