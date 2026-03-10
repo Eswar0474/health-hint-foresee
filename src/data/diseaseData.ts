@@ -8,7 +8,14 @@ export const ALL_SYMPTOMS = [
   "chest_pain", "fast_heart_rate", "obesity", "excessive_hunger",
   "increased_appetite", "polyuria", "family_history", "mucoid_sputum",
   "rusty_sputum", "blood_in_sputum", "headache", "dehydration",
-  "weakness_in_limbs"
+  "weakness_in_limbs",
+  // New symptoms
+  "dizziness", "muscle_pain", "joint_pain", "back_pain", "mood_swings",
+  "anxiety", "irritability", "muscle_wasting", "indigestion", "constipation",
+  "diarrhoea", "acidity", "skin_rash", "skin_peeling", "burning_sensation",
+  "throat_irritation", "continuous_sneezing", "congestion", "runny_nose",
+  "sinus_pressure", "night_sweats", "loss_of_smell", "palpitations",
+  "cold_hands_and_feet"
 ] as const;
 
 export const SYMPTOM_LABELS: Record<string, string> = {
