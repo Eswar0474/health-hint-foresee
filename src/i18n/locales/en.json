@@ -2,7 +2,7 @@
   "app": {
     "title": "MediPredict",
     "subtitle": "Symptom-based multi-disease prediction system. Select your symptoms to identify possible conditions using pattern matching analysis.",
-    "stats": "6 diseases • 36 symptoms • Weighted pattern matching engine"
+    "stats": "6 diseases • 60 symptoms • Weighted pattern matching engine"
   },
   "symptoms": {
     "title": "Select Symptoms",
@@ -18,6 +18,7 @@
       "Urinary & Metabolic": "Urinary & Metabolic",
       "Eyes & Vision": "Eyes & Vision",
       "Circulatory": "Circulatory",
+      "Mental & Behavioral": "Mental & Behavioral",
       "Other": "Other"
     },
     "labels": {
@@ -56,7 +57,31 @@
       "blood_in_sputum": "Blood in Sputum",
       "headache": "Headache",
       "dehydration": "Dehydration",
-      "weakness_in_limbs": "Weakness in Limbs"
+      "weakness_in_limbs": "Weakness in Limbs",
+      "dizziness": "Dizziness",
+      "muscle_pain": "Muscle Pain",
+      "joint_pain": "Joint Pain",
+      "back_pain": "Back Pain",
+      "mood_swings": "Mood Swings",
+      "anxiety": "Anxiety",
+      "irritability": "Irritability",
+      "muscle_wasting": "Muscle Wasting",
+      "indigestion": "Indigestion",
+      "constipation": "Constipation",
+      "diarrhoea": "Diarrhoea",
+      "acidity": "Acidity",
+      "skin_rash": "Skin Rash",
+      "skin_peeling": "Skin Peeling",
+      "burning_sensation": "Burning Sensation",
+      "throat_irritation": "Throat Irritation",
+      "continuous_sneezing": "Continuous Sneezing",
+      "congestion": "Congestion",
+      "runny_nose": "Runny Nose",
+      "sinus_pressure": "Sinus Pressure",
+      "night_sweats": "Night Sweats",
+      "loss_of_smell": "Loss of Smell",
+      "palpitations": "Palpitations",
+      "cold_hands_and_feet": "Cold Hands & Feet"
     }
   },
   "predictions": {

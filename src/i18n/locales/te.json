@@ -2,7 +2,7 @@
   "app": {
     "title": "MediPredict",
     "subtitle": "లక్షణ-ఆధారిత బహుళ-వ్యాధి అంచనా వ్యవస్థ. పాటర్న్ మ్యాచింగ్ విశ్లేషణ ఉపయోగించి సాధ్యమైన పరిస్థితులను గుర్తించడానికి మీ లక్షణాలను ఎంచుకోండి.",
-    "stats": "6 వ్యాధులు • 36 లక్షణాలు • వెయిటెడ్ పాటర్న్ మ్యాచింగ్ ఇంజన్"
+    "stats": "6 వ్యాధులు • 60 లక్షణాలు • వెయిటెడ్ పాటర్న్ మ్యాచింగ్ ఇంజన్"
   },
   "symptoms": {
     "title": "లక్షణాలను ఎంచుకోండి",
@@ -18,6 +18,7 @@
       "Urinary & Metabolic": "మూత్ర & జీవక్రియ",
       "Eyes & Vision": "కళ్ళు & దృష్టి",
       "Circulatory": "రక్తప్రసరణ",
+      "Mental & Behavioral": "మానసిక & ప్రవర్తనా",
       "Other": "ఇతర"
     },
     "labels": {
@@ -56,7 +57,31 @@
       "blood_in_sputum": "కఫంలో రక్తం",
       "headache": "తలనొప్పి",
       "dehydration": "నిర్జలీకరణం",
-      "weakness_in_limbs": "అవయవాలలో బలహీనత"
+      "weakness_in_limbs": "అవయవాలలో బలహీనత",
+      "dizziness": "తల తిరుగుట",
+      "muscle_pain": "కండరాల నొప్పి",
+      "joint_pain": "కీళ్ల నొప్పి",
+      "back_pain": "వీపు నొప్పి",
+      "mood_swings": "మూడ్ మారడం",
+      "anxiety": "ఆందోళన",
+      "irritability": "చిరాకు",
+      "muscle_wasting": "కండరాల క్షీణత",
+      "indigestion": "అజీర్ణం",
+      "constipation": "మలబద్ధకం",
+      "diarrhoea": "అతిసారం",
+      "acidity": "ఆమ్లత్వం",
+      "skin_rash": "చర్మ దద్దుర్లు",
+      "skin_peeling": "చర్మం ఊడిపోవడం",
+      "burning_sensation": "మంట",
+      "throat_irritation": "గొంతు మంట",
+      "continuous_sneezing": "నిరంతర తుమ్ములు",
+      "congestion": "ముక్కు బిగుసుకుపోవడం",
+      "runny_nose": "ముక్కు కారడం",
+      "sinus_pressure": "సైనస్ ఒత్తిడి",
+      "night_sweats": "రాత్రి చెమట",
+      "loss_of_smell": "వాసన కోల్పోవడం",
+      "palpitations": "గుండె దడ",
+      "cold_hands_and_feet": "చల్లని చేతులు & పాదాలు"
     }
   },
   "predictions": {

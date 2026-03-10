@@ -2,7 +2,7 @@
   "app": {
     "title": "MediPredict",
     "subtitle": "ರೋಗಲಕ್ಷಣ-ಆಧಾರಿತ ಬಹು-ರೋಗ ಮುನ್ಸೂಚನೆ ವ್ಯವಸ್ಥೆ. ಪ್ಯಾಟರ್ನ್ ಹೊಂದಾಣಿಕೆ ವಿಶ್ಲೇಷಣೆ ಬಳಸಿ ಸಂಭಾವ್ಯ ಪರಿಸ್ಥಿತಿಗಳನ್ನು ಗುರುತಿಸಲು ನಿಮ್ಮ ರೋಗಲಕ್ಷಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
-    "stats": "6 ರೋಗಗಳು • 36 ರೋಗಲಕ್ಷಣಗಳು • ತೂಕದ ಪ್ಯಾಟರ್ನ್ ಹೊಂದಾಣಿಕೆ ಎಂಜಿನ್"
+    "stats": "6 ರೋಗಗಳು • 60 ರೋಗಲಕ್ಷಣಗಳು • ತೂಕದ ಪ್ಯಾಟರ್ನ್ ಹೊಂದಾಣಿಕೆ ಎಂಜಿನ್"
   },
   "symptoms": {
     "title": "ರೋಗಲಕ್ಷಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ",
@@ -18,6 +18,7 @@
       "Urinary & Metabolic": "ಮೂತ್ರ & ಚಯಾಪಚಯ",
       "Eyes & Vision": "ಕಣ್ಣುಗಳು & ದೃಷ್ಟಿ",
       "Circulatory": "ರಕ್ತಪರಿಚಲನೆ",
+      "Mental & Behavioral": "ಮಾನಸಿಕ & ನಡವಳಿಕೆ",
       "Other": "ಇತರ"
     },
     "labels": {
@@ -56,7 +57,31 @@
       "blood_in_sputum": "ಕಫದಲ್ಲಿ ರಕ್ತ",
       "headache": "ತಲೆನೋವು",
       "dehydration": "ನಿರ್ಜಲೀಕರಣ",
-      "weakness_in_limbs": "ಅಂಗಗಳಲ್ಲಿ ದೌರ್ಬಲ್ಯ"
+      "weakness_in_limbs": "ಅಂಗಗಳಲ್ಲಿ ದೌರ್ಬಲ್ಯ",
+      "dizziness": "ತಲೆ ತಿರುಗುವಿಕೆ",
+      "muscle_pain": "ಮಾಂಸಖಂಡ ನೋವು",
+      "joint_pain": "ಕೀಲು ನೋವು",
+      "back_pain": "ಬೆನ್ನು ನೋವು",
+      "mood_swings": "ಮನಸ್ಥಿತಿ ಬದಲಾವಣೆ",
+      "anxiety": "ಆತಂಕ",
+      "irritability": "ಕಿರಿಕಿರಿ",
+      "muscle_wasting": "ಮಾಂಸಖಂಡ ಕ್ಷೀಣತೆ",
+      "indigestion": "ಅಜೀರ್ಣ",
+      "constipation": "ಮಲಬದ್ಧತೆ",
+      "diarrhoea": "ಅತಿಸಾರ",
+      "acidity": "ಆಮ್ಲತ್ವ",
+      "skin_rash": "ಚರ್ಮ ದದ್ದು",
+      "skin_peeling": "ಚರ್ಮ ಸಿಪ್ಪೆ ಸುಲಿಯುವಿಕೆ",
+      "burning_sensation": "ಉರಿ ಅನುಭವ",
+      "throat_irritation": "ಗಂಟಲು ಕಿರಿಕಿರಿ",
+      "continuous_sneezing": "ನಿರಂತರ ಸೀನು",
+      "congestion": "ಮೂಗು ಕಟ್ಟುವಿಕೆ",
+      "runny_nose": "ಮೂಗು ಸೋರುವಿಕೆ",
+      "sinus_pressure": "ಸೈನಸ್ ಒತ್ತಡ",
+      "night_sweats": "ರಾತ್ರಿ ಬೆವರು",
+      "loss_of_smell": "ವಾಸನೆ ಕಳೆದುಕೊಳ್ಳುವಿಕೆ",
+      "palpitations": "ಹೃದಯ ಬಡಿತ ಹೆಚ್ಚಾಗುವಿಕೆ",
+      "cold_hands_and_feet": "ತಣ್ಣನೆಯ ಕೈಕಾಲುಗಳು"
     }
   },
   "predictions": {

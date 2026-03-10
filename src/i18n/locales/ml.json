@@ -2,7 +2,7 @@
   "app": {
     "title": "MediPredict",
     "subtitle": "ലക്ഷണ-അടിസ്ഥാന ബഹു-രോഗ പ്രവചന സംവിധാനം. പാറ്റേൺ മാച്ചിംഗ് വിശകലനം ഉപയോഗിച്ച് സാധ്യമായ അവസ്ഥകൾ തിരിച്ചറിയാൻ നിങ്ങളുടെ ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക.",
-    "stats": "6 രോഗങ്ങൾ • 36 ലക്ഷണങ്ങൾ • വെയ്റ്റഡ് പാറ്റേൺ മാച്ചിംഗ് എഞ്ചിൻ"
+    "stats": "6 രോഗങ്ങൾ • 60 ലക്ഷണങ്ങൾ • വെയ്റ്റഡ് പാറ്റേൺ മാച്ചിംഗ് എഞ്ചിൻ"
   },
   "symptoms": {
     "title": "ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക",
@@ -18,6 +18,7 @@
       "Urinary & Metabolic": "മൂത്ര & ഉപാപചയ",
       "Eyes & Vision": "കണ്ണുകൾ & കാഴ്ച",
       "Circulatory": "രക്തചംക്രമണം",
+      "Mental & Behavioral": "മാനസിക & പെരുമാറ്റ",
       "Other": "മറ്റുള്ളവ"
     },
     "labels": {
@@ -56,7 +57,31 @@
       "blood_in_sputum": "കഫത്തിൽ രക്തം",
       "headache": "തലവേദന",
       "dehydration": "നിർജ്ജലീകരണം",
-      "weakness_in_limbs": "അവയവങ്ങളിൽ ബലക്ഷയം"
+      "weakness_in_limbs": "അവയവങ്ങളിൽ ബലക്ഷയം",
+      "dizziness": "തലചുറ്റൽ",
+      "muscle_pain": "പേശി വേദന",
+      "joint_pain": "സന്ധി വേദന",
+      "back_pain": "മുതുകുവേദന",
+      "mood_swings": "മാനസികാവസ്ഥ മാറ്റങ്ങൾ",
+      "anxiety": "ഉത്കണ്ഠ",
+      "irritability": "ചൊടിപ്പ്",
+      "muscle_wasting": "പേശി ക്ഷയം",
+      "indigestion": "അജീർണം",
+      "constipation": "മലബന്ധം",
+      "diarrhoea": "വയറിളക്കം",
+      "acidity": "അമ്ലത",
+      "skin_rash": "ചർമ്മ തടിപ്പ്",
+      "skin_peeling": "ചർമ്മം അടർന്നുപോകൽ",
+      "burning_sensation": "എരിച്ചിൽ",
+      "throat_irritation": "തൊണ്ട എരിച്ചിൽ",
+      "continuous_sneezing": "തുടർച്ചയായ തുമ്മൽ",
+      "congestion": "മൂക്കടയ്പ്പ്",
+      "runny_nose": "മൂക്കൊലിപ്പ്",
+      "sinus_pressure": "സൈനസ് മർദ്ദം",
+      "night_sweats": "രാത്രി വിയർപ്പ്",
+      "loss_of_smell": "മണം നഷ്ടപ്പെടൽ",
+      "palpitations": "ഹൃദയമിടിപ്പ് കൂടൽ",
+      "cold_hands_and_feet": "തണുത്ത കൈകാലുകൾ"
     }
   },
   "predictions": {

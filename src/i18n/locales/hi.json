@@ -2,7 +2,7 @@
   "app": {
     "title": "MediPredict",
     "subtitle": "लक्षण-आधारित बहु-रोग पूर्वानुमान प्रणाली। पैटर्न मिलान विश्लेषण का उपयोग करके संभावित स्थितियों की पहचान करने के लिए अपने लक्षण चुनें।",
-    "stats": "6 रोग • 36 लक्षण • भारित पैटर्न मिलान इंजन"
+    "stats": "6 रोग • 60 लक्षण • भारित पैटर्न मिलान इंजन"
   },
   "symptoms": {
     "title": "लक्षण चुनें",
@@ -18,6 +18,7 @@
       "Urinary & Metabolic": "मूत्र और चयापचय",
       "Eyes & Vision": "आँखें और दृष्टि",
       "Circulatory": "परिसंचरण",
+      "Mental & Behavioral": "मानसिक और व्यवहारिक",
       "Other": "अन्य"
     },
     "labels": {
@@ -56,7 +57,31 @@
       "blood_in_sputum": "थूक में खून",
       "headache": "सिरदर्द",
       "dehydration": "निर्जलीकरण",
-      "weakness_in_limbs": "अंगों में कमजोरी"
+      "weakness_in_limbs": "अंगों में कमजोरी",
+      "dizziness": "चक्कर आना",
+      "muscle_pain": "मांसपेशियों में दर्द",
+      "joint_pain": "जोड़ों का दर्द",
+      "back_pain": "पीठ दर्द",
+      "mood_swings": "मूड में बदलाव",
+      "anxiety": "चिंता",
+      "irritability": "चिड़चिड़ापन",
+      "muscle_wasting": "मांसपेशी क्षय",
+      "indigestion": "अपच",
+      "constipation": "कब्ज",
+      "diarrhoea": "दस्त",
+      "acidity": "अम्लता",
+      "skin_rash": "त्वचा पर चकत्ते",
+      "skin_peeling": "त्वचा का छिलना",
+      "burning_sensation": "जलन",
+      "throat_irritation": "गले में जलन",
+      "continuous_sneezing": "लगातार छींक",
+      "congestion": "नाक बंद",
+      "runny_nose": "बहती नाक",
+      "sinus_pressure": "साइनस दबाव",
+      "night_sweats": "रात को पसीना",
+      "loss_of_smell": "गंध न आना",
+      "palpitations": "धड़कन तेज होना",
+      "cold_hands_and_feet": "ठंडे हाथ और पैर"
     }
   },
   "predictions": {

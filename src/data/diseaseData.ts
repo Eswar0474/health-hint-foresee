@@ -8,7 +8,14 @@ export const ALL_SYMPTOMS = [
   "chest_pain", "fast_heart_rate", "obesity", "excessive_hunger",
   "increased_appetite", "polyuria", "family_history", "mucoid_sputum",
   "rusty_sputum", "blood_in_sputum", "headache", "dehydration",
-  "weakness_in_limbs"
+  "weakness_in_limbs",
+  // New symptoms
+  "dizziness", "muscle_pain", "joint_pain", "back_pain", "mood_swings",
+  "anxiety", "irritability", "muscle_wasting", "indigestion", "constipation",
+  "diarrhoea", "acidity", "skin_rash", "skin_peeling", "burning_sensation",
+  "throat_irritation", "continuous_sneezing", "congestion", "runny_nose",
+  "sinus_pressure", "night_sweats", "loss_of_smell", "palpitations",
+  "cold_hands_and_feet"
 ] as const;
 
 export const SYMPTOM_LABELS: Record<string, string> = {
@@ -48,17 +55,42 @@ export const SYMPTOM_LABELS: Record<string, string> = {
   headache: "Headache",
   dehydration: "Dehydration",
   weakness_in_limbs: "Weakness in Limbs",
+  dizziness: "Dizziness",
+  muscle_pain: "Muscle Pain",
+  joint_pain: "Joint Pain",
+  back_pain: "Back Pain",
+  mood_swings: "Mood Swings",
+  anxiety: "Anxiety",
+  irritability: "Irritability",
+  muscle_wasting: "Muscle Wasting",
+  indigestion: "Indigestion",
+  constipation: "Constipation",
+  diarrhoea: "Diarrhoea",
+  acidity: "Acidity",
+  skin_rash: "Skin Rash",
+  skin_peeling: "Skin Peeling",
+  burning_sensation: "Burning Sensation",
+  throat_irritation: "Throat Irritation",
+  continuous_sneezing: "Continuous Sneezing",
+  congestion: "Congestion",
+  runny_nose: "Runny Nose",
+  sinus_pressure: "Sinus Pressure",
+  night_sweats: "Night Sweats",
+  loss_of_smell: "Loss of Smell",
+  palpitations: "Palpitations",
+  cold_hands_and_feet: "Cold Hands & Feet",
 };
 
 export const SYMPTOM_CATEGORIES: Record<string, string[]> = {
-  "General": ["fatigue", "weight_loss", "restlessness", "lethargy", "malaise", "obesity", "weakness_in_limbs"],
-  "Respiratory": ["cough", "breathlessness", "phlegm", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum"],
-  "Digestive": ["vomiting", "nausea", "loss_of_appetite", "abdominal_pain"],
-  "Fever & Infection": ["chills", "high_fever", "mild_fever", "sweating", "swelled_lymph_nodes", "headache", "dehydration"],
-  "Skin & Appearance": ["itching", "yellowish_skin"],
+  "General": ["fatigue", "weight_loss", "restlessness", "lethargy", "malaise", "obesity", "weakness_in_limbs", "dizziness", "muscle_pain", "joint_pain", "back_pain", "muscle_wasting"],
+  "Respiratory": ["cough", "breathlessness", "phlegm", "chest_pain", "mucoid_sputum", "rusty_sputum", "blood_in_sputum", "throat_irritation", "continuous_sneezing", "congestion", "runny_nose", "sinus_pressure"],
+  "Digestive": ["vomiting", "nausea", "loss_of_appetite", "abdominal_pain", "indigestion", "constipation", "diarrhoea", "acidity"],
+  "Fever & Infection": ["chills", "high_fever", "mild_fever", "sweating", "swelled_lymph_nodes", "headache", "dehydration", "night_sweats", "loss_of_smell"],
+  "Skin & Appearance": ["itching", "yellowish_skin", "skin_rash", "skin_peeling", "burning_sensation"],
   "Urinary & Metabolic": ["dark_urine", "polyuria", "irregular_sugar_level"],
   "Eyes & Vision": ["blurred_and_distorted_vision", "yellowing_of_eyes"],
-  "Circulatory": ["fast_heart_rate"],
+  "Circulatory": ["fast_heart_rate", "palpitations", "cold_hands_and_feet"],
+  "Mental & Behavioral": ["mood_swings", "anxiety", "irritability"],
   "Other": ["excessive_hunger", "increased_appetite", "family_history"],
 };
 
@@ -78,11 +110,11 @@ export interface DiseaseProfile {
 export const DISEASE_PROFILES: DiseaseProfile[] = [
   {
     name: "Diabetes",
-    symptoms: ["fatigue", "weight_loss", "restlessness", "lethargy", "irregular_sugar_level", "blurred_and_distorted_vision", "obesity", "excessive_hunger", "increased_appetite", "polyuria"],
+    symptoms: ["fatigue", "weight_loss", "restlessness", "lethargy", "irregular_sugar_level", "blurred_and_distorted_vision", "obesity", "excessive_hunger", "increased_appetite", "polyuria", "dizziness", "irritability", "muscle_wasting", "mood_swings"],
     weights: {
       polyuria: 3, irregular_sugar_level: 3, excessive_hunger: 2.5, increased_appetite: 2.5,
       obesity: 2, blurred_and_distorted_vision: 1.5, restlessness: 1.2, lethargy: 1.2,
-      weight_loss: 1, fatigue: 0.5
+      weight_loss: 1, fatigue: 0.5, dizziness: 0.8, irritability: 0.7, muscle_wasting: 0.8, mood_swings: 0.7
     },
     keySymptoms: ["polyuria", "irregular_sugar_level", "excessive_hunger", "increased_appetite"],
     description: "A metabolic disease causing high blood sugar levels due to insulin issues.",
@@ -90,9 +122,9 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Bronchial Asthma",
-    symptoms: ["fatigue", "cough", "high_fever", "breathlessness", "family_history", "mucoid_sputum"],
+    symptoms: ["fatigue", "cough", "high_fever", "breathlessness", "family_history", "mucoid_sputum", "throat_irritation", "congestion", "continuous_sneezing"],
     weights: {
-      mucoid_sputum: 3, family_history: 2.5, breathlessness: 2, cough: 1.5, high_fever: 1, fatigue: 0.5
+      mucoid_sputum: 3, family_history: 2.5, breathlessness: 2, cough: 1.5, high_fever: 1, fatigue: 0.5, throat_irritation: 0.8, congestion: 0.7, continuous_sneezing: 0.6
     },
     keySymptoms: ["mucoid_sputum", "family_history", "breathlessness"],
     description: "A condition in which airways narrow, swell, and produce extra mucus.",
@@ -100,10 +132,10 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Jaundice",
-    symptoms: ["itching", "vomiting", "fatigue", "weight_loss", "high_fever", "yellowish_skin", "dark_urine", "abdominal_pain", "nausea"],
+    symptoms: ["itching", "vomiting", "fatigue", "weight_loss", "high_fever", "yellowish_skin", "dark_urine", "abdominal_pain", "nausea", "indigestion", "acidity", "skin_rash", "diarrhoea"],
     weights: {
       yellowish_skin: 3, dark_urine: 2.5, itching: 2, nausea: 1.5, abdominal_pain: 1.5,
-      vomiting: 1.2, high_fever: 1, weight_loss: 1, fatigue: 0.5
+      vomiting: 1.2, high_fever: 1, weight_loss: 1, fatigue: 0.5, indigestion: 0.7, acidity: 0.6, skin_rash: 0.8, diarrhoea: 0.6
     },
     keySymptoms: ["yellowish_skin", "dark_urine", "itching"],
     description: "Yellowing of the skin and eyes due to high bilirubin levels.",
@@ -111,12 +143,12 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Tuberculosis",
-    symptoms: ["chills", "vomiting", "fatigue", "weight_loss", "cough", "high_fever", "breathlessness", "sweating", "loss_of_appetite", "mild_fever", "yellowing_of_eyes", "swelled_lymph_nodes", "malaise", "phlegm", "chest_pain", "blood_in_sputum"],
+    symptoms: ["chills", "vomiting", "fatigue", "weight_loss", "cough", "high_fever", "breathlessness", "sweating", "loss_of_appetite", "mild_fever", "yellowing_of_eyes", "swelled_lymph_nodes", "malaise", "phlegm", "chest_pain", "blood_in_sputum", "night_sweats", "muscle_pain", "back_pain", "joint_pain"],
     weights: {
       blood_in_sputum: 3, yellowing_of_eyes: 2.5, swelled_lymph_nodes: 2, mild_fever: 2,
       loss_of_appetite: 1.5, malaise: 1.5, phlegm: 1.3, chest_pain: 1.3, cough: 1.2,
       breathlessness: 1, sweating: 1, chills: 1, high_fever: 1, weight_loss: 1,
-      vomiting: 0.8, fatigue: 0.5
+      vomiting: 0.8, fatigue: 0.5, night_sweats: 1.5, muscle_pain: 0.7, back_pain: 0.6, joint_pain: 0.6
     },
     keySymptoms: ["blood_in_sputum", "yellowing_of_eyes", "swelled_lymph_nodes"],
     description: "A potentially serious infectious bacterial disease affecting the lungs.",
@@ -124,10 +156,10 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Pneumonia",
-    symptoms: ["chills", "fatigue", "cough", "high_fever", "breathlessness", "sweating", "malaise", "phlegm", "chest_pain", "fast_heart_rate", "rusty_sputum"],
+    symptoms: ["chills", "fatigue", "cough", "high_fever", "breathlessness", "sweating", "malaise", "phlegm", "chest_pain", "fast_heart_rate", "rusty_sputum", "congestion", "throat_irritation", "muscle_pain", "loss_of_smell"],
     weights: {
       rusty_sputum: 3, fast_heart_rate: 2.5, malaise: 1.5, phlegm: 1.3, chest_pain: 1.3,
-      sweating: 1.2, breathlessness: 1.2, cough: 1, high_fever: 1, chills: 1, fatigue: 0.5
+      sweating: 1.2, breathlessness: 1.2, cough: 1, high_fever: 1, chills: 1, fatigue: 0.5, congestion: 0.7, throat_irritation: 0.6, muscle_pain: 0.7, loss_of_smell: 0.6
     },
     keySymptoms: ["rusty_sputum", "fast_heart_rate"],
     description: "Infection that inflames air sacs in one or both lungs.",
@@ -135,10 +167,10 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Heart Attack",
-    symptoms: ["vomiting", "breathlessness", "sweating", "chest_pain", "nausea", "weakness_in_limbs"],
+    symptoms: ["vomiting", "breathlessness", "sweating", "chest_pain", "nausea", "weakness_in_limbs", "palpitations", "dizziness", "anxiety", "back_pain", "cold_hands_and_feet"],
     weights: {
       chest_pain: 3, breathlessness: 2.5, sweating: 2, weakness_in_limbs: 2,
-      nausea: 1.5, vomiting: 1.5
+      nausea: 1.5, vomiting: 1.5, palpitations: 2, dizziness: 1.2, anxiety: 1, back_pain: 0.8, cold_hands_and_feet: 1
     },
     keySymptoms: ["chest_pain", "breathlessness", "sweating"],
     description: "Occurs when blood flow to the heart is blocked. Requires immediate medical attention.",
