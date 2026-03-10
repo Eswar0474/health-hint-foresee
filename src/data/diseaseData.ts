@@ -132,10 +132,10 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Jaundice",
-    symptoms: ["itching", "vomiting", "fatigue", "weight_loss", "high_fever", "yellowish_skin", "dark_urine", "abdominal_pain", "nausea"],
+    symptoms: ["itching", "vomiting", "fatigue", "weight_loss", "high_fever", "yellowish_skin", "dark_urine", "abdominal_pain", "nausea", "indigestion", "acidity", "skin_rash", "diarrhoea"],
     weights: {
       yellowish_skin: 3, dark_urine: 2.5, itching: 2, nausea: 1.5, abdominal_pain: 1.5,
-      vomiting: 1.2, high_fever: 1, weight_loss: 1, fatigue: 0.5
+      vomiting: 1.2, high_fever: 1, weight_loss: 1, fatigue: 0.5, indigestion: 0.7, acidity: 0.6, skin_rash: 0.8, diarrhoea: 0.6
     },
     keySymptoms: ["yellowish_skin", "dark_urine", "itching"],
     description: "Yellowing of the skin and eyes due to high bilirubin levels.",
