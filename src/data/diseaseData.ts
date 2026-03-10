@@ -167,10 +167,10 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Heart Attack",
-    symptoms: ["vomiting", "breathlessness", "sweating", "chest_pain", "nausea", "weakness_in_limbs"],
+    symptoms: ["vomiting", "breathlessness", "sweating", "chest_pain", "nausea", "weakness_in_limbs", "palpitations", "dizziness", "anxiety", "back_pain", "cold_hands_and_feet"],
     weights: {
       chest_pain: 3, breathlessness: 2.5, sweating: 2, weakness_in_limbs: 2,
-      nausea: 1.5, vomiting: 1.5
+      nausea: 1.5, vomiting: 1.5, palpitations: 2, dizziness: 1.2, anxiety: 1, back_pain: 0.8, cold_hands_and_feet: 1
     },
     keySymptoms: ["chest_pain", "breathlessness", "sweating"],
     description: "Occurs when blood flow to the heart is blocked. Requires immediate medical attention.",
