@@ -2,7 +2,7 @@
   "app": {
     "title": "MediPredict",
     "subtitle": "Symptom-based multi-disease prediction system. Select your symptoms to identify possible conditions using pattern matching analysis.",
-    "stats": "6 diseases • 36 symptoms • Weighted pattern matching engine"
+    "stats": "6 diseases • 60 symptoms • Weighted pattern matching engine"
   },
   "symptoms": {
     "title": "Select Symptoms",
