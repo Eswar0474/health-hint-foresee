@@ -122,9 +122,9 @@ export const DISEASE_PROFILES: DiseaseProfile[] = [
   },
   {
     name: "Bronchial Asthma",
-    symptoms: ["fatigue", "cough", "high_fever", "breathlessness", "family_history", "mucoid_sputum"],
+    symptoms: ["fatigue", "cough", "high_fever", "breathlessness", "family_history", "mucoid_sputum", "throat_irritation", "congestion", "continuous_sneezing"],
     weights: {
-      mucoid_sputum: 3, family_history: 2.5, breathlessness: 2, cough: 1.5, high_fever: 1, fatigue: 0.5
+      mucoid_sputum: 3, family_history: 2.5, breathlessness: 2, cough: 1.5, high_fever: 1, fatigue: 0.5, throat_irritation: 0.8, congestion: 0.7, continuous_sneezing: 0.6
     },
     keySymptoms: ["mucoid_sputum", "family_history", "breathlessness"],
     description: "A condition in which airways narrow, swell, and produce extra mucus.",
